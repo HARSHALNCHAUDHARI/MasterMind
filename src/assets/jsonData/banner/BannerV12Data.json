@@ -1,0 +1,91 @@
+[
+    {
+  "id": 1,
+  "modal": "modalOne",
+  "thumb": "47.jpg",
+  "thumbFull": "47-full.jpg",
+  "titleFirst": "Web &",
+  "titleLast": "App Solutions",
+ "description": "• Website Design & Development – Professional, mobile-friendly websites that engage and convert visitors.\n• App Development – Custom Android & iOS apps to scale your business digitally.\n• Website Hosting & Domain Services – Secure hosting and reliable domain management.",
+
+  "tags": [
+    "Design",
+    "Branding",
+    "Agency"
+  ]
+},
+
+    {
+        "id": 2,
+        "modal": "modalTwo",
+        "thumb": "48.jpg",
+        "thumbFull": "48-full.jpg",
+        "titleFirst": "Digital",
+        "titleLast": " Marketing",
+"description": "• SEO (Search Engine Optimization) – Boost rankings, traffic & visibility with proven SEO strategies.\n• Google Ads (PPC Marketing) – Get quality leads with data-driven ad campaigns.\n• Social Media Marketing – Creative & targeted strategies for Facebook, Instagram, LinkedIn & more.\n• Content Marketing – Engaging blogs, ad copies & creative campaigns to attract customers.\n• Email Marketing – Personalized campaigns that nurture leads & drive conversions.",
+
+        "tags": [
+            "Promotion",
+            "Finance",
+            "Creative"
+        ]
+    },
+    {
+        "id": 3,
+        "modal": "modalThree",
+        "thumb": "48.jpg",
+        "thumbFull": "48-full.jpg",
+        "titleFirst": "Digital",
+        "titleLast": " Marketing",
+"description": "• WhatsApp Marketing – Direct customer engagement with broadcast & automation.\n• SMS Marketing – Fast, effective campaigns to reach customers instantly.\n• Influencer Marketing – Collaborate with trusted influencers to boost reach & brand trust.\n• Digital Marketing Consulting – Tailored strategies & guidance to achieve business growth.",
+
+        "tags": [
+            "Promotion",
+            "Finance",
+            "Creative"
+        ]
+    },
+    {
+        "id": 4,
+        "modal": "modalFour",
+        "thumb": "49.jpg",
+        "thumbFull": "49-full.jpg",
+        "titleFirst": "Creative & ",
+        "titleLast": "Branding",
+        "description": "• Graphics Designing – Unique logos, branding, and digital creatives that stand out.\n• Logo Design & Branding – Build a strong, memorable brand identity.\n• Photo & Video Shoot – Professional shoots for products, events & storytelling.\n• Video Editing & Marketing – Professional video ads, reels, and corporate edits powered by AI tools.",
+        "tags": [
+            "Technology",
+            "Agency",
+            "Creative"
+        ]
+    },
+    {
+        "id": 5,
+        "modal": "modalFive",
+        "thumb": "49.jpg",
+        "thumbFull": "49-full.jpg",
+        "titleFirst": "Reputation & ",
+        "titleLast": "Growth",
+       "description": "• PR (Public Relations) – Build brand authority with targeted press releases & media coverage.\n• ORM (Online Reputation Management) – Manage reviews, ratings & brand image across digital platforms.\n• Google Business Profile Management – Optimize your business listing to rank higher on local search & maps.",
+
+        "tags": [
+            "Technology",
+            "Agency",
+            "Creative"
+        ]
+    },
+    {
+        "id": 6,
+        "modal": "modalSix",
+        "thumb": "49.jpg",
+        "thumbFull": "49-full.jpg",
+        "titleFirst": "AI-Powered",
+        "titleLast": "Solutions",
+        "description": "• AI Chatbot Development – Custom chatbots for websites, WhatsApp & social media to automate customer support.\n• AI Voiceovers & Dubbing – Multilingual AI-generated voiceovers for ads, reels & brand videos.",
+        "tags": [
+            "Technology",
+            "Agency",
+            "Creative"
+        ]
+    }
+]
