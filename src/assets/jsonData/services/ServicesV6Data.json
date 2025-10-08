@@ -2,25 +2,57 @@
     {
         "id": 1,
         "icon": "9.png",
-        "subTitle": "Connection",
-        "title": "Perfect UI/UX Designing",
-        "text": "Continue indulged speaking the was out horrible for domestic position. Seeing rather her you not esteem men settle genius excuse. Deal say over you age from. Comparison new.",
+        "subTitle": "Design Excellence",
+        "title": "Custom Website Design",
+        "text": "We craft bespoke website designs tailored to your brand identity, messaging, and conversion goals, ensuring a unique digital presence that stands out in your industry.",
         "number": "01"
     },
     {
         "id": 2,
         "icon": "10.png",
-        "subTitle": "Collaboration",
-        "title": "Social Media Marketing",
-        "text": "Regular indulged speaking the was out horrible for domestic position. Seeing rather her you not esteem men settle genius excuse. Deal say over you age from. Comparison new.",
+        "subTitle": "Mobile First",
+        "title": "Responsive Web Development",
+        "text": "Our websites are fully responsive, delivering a flawless user experience across desktops, tablets, and mobile devices with optimized performance and accessibility.",
         "number": "02"
     },
     {
         "id": 3,
         "icon": "11.png",
-        "subTitle": "Innovations",
-        "title": "Branding & Stationery",
-        "text": "Continue indulged speaking the was out horrible for domestic position. Seeing rather her you not esteem men settle genius excuse. Deal say over you age from. Comparison new.",
+        "subTitle": "Commerce Solutions",
+        "title": "eCommerce Website Development",
+        "text": "From product catalogs to secure payment gateways, we create eCommerce platforms that are optimized for sales and scalability with integrated inventory management.",
         "number": "03"
+    },
+    {
+        "id": 4,
+        "icon": "12.png",
+        "subTitle": "User Experience",
+        "title": "UI/UX Design Services",
+        "text": "We design intuitive interfaces with wireframes, prototypes, and style guides that ensure smooth, engaging user journeys and maximize conversion rates.",
+        "number": "04"
+    },
+    {
+        "id": 5,
+        "icon": "13.png",
+        "subTitle": "Web Applications",
+        "title": "Web App Development",
+        "text": "Our team builds high-performance, feature-rich web applications tailored to your specific business requirements using modern frameworks and technologies.",
+        "number": "05"
+    },
+    {
+        "id": 6,
+        "icon": "14.png",
+        "subTitle": "Custom Solutions",
+        "title": "Software Development",
+        "text": "We develop custom software solutions that streamline workflows, improve efficiency, and integrate seamlessly with your existing business operations.",
+        "number": "06"
+    },
+    {
+        "id": 7,
+        "icon": "15.png",
+        "subTitle": "Mobile Apps",
+        "title": "Android App Development",
+        "text": "Our Android apps are built for speed, functionality, and user engagement, helping you connect with your mobile audience through innovative features and design.",
+        "number": "07"
     }
 ]

@@ -12,7 +12,7 @@ const Blog3ColumnLightPage = () => {
             </Helmet>
 
             <LayoutV1>
-                <Breadcrumb title='Blog Grid' breadCrumb='blog-3-column-light' />
+                <Breadcrumb title='Blog Grid' breadCrumb='blogs-light' />
                 <Blog3ColumnContent sectionClass='default-padding-bottom' />
                 <ThemeLight />
             </LayoutV1>

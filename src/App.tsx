@@ -22,6 +22,8 @@ import Dependency from './components/utilities/Dependency';
 import { useEffect, useState } from 'react';
 import Preloader from './components/utilities/Preloader';
 
+import { ToastContainer } from "react-toastify";
+
 function App() {
 
   //  Preloader 
@@ -38,6 +40,7 @@ function App() {
       {isLoading ? <Preloader /> :
         <>
           <Routers />
+          <ToastContainer position="top-right" />
           <RoutesScrollToTop />
           <Dependency />
         </>

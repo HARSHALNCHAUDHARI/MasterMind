@@ -3,7 +3,7 @@ import Breadcrumb from '../../components/breadcrumb/Breadcrumb';
 import BlogSingleContent from '../../components/blog/BlogSingleContent';
 import DarkClass from '../../components/classes/DarkClass';
 import { useParams } from 'react-router-dom';
-import BlogV3Data from "../../assets/jsonData/blog/BlogV3Data.json";
+import BlogV3Data from "../../../src/assets/jsonData/blog/BlogV3Data.json";
 import { Helmet } from 'react-helmet-async';
 import ThemeDark from '../../components/switcher/ThemeDark';
 

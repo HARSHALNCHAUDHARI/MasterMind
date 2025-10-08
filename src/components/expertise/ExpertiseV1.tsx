@@ -4,12 +4,12 @@ const ExpertiseV1 = () => {
     return (
         <>
             <div className="container">
-                <div className="expertise-area text-center">
+                <div className="expertise-area text-center" style={{marginTop:"100px"}}>
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="site-heading">
-                                <h4 className="sub-title">Our Process </h4>
-                                <h2 className="title">Best Solutions Provider</h2>
+                                <h4 className="sub-title">Our Features </h4>
+                                <h2 className="title">What Makes Us Different</h2>
                             </div>
                         </div>
                     </div>

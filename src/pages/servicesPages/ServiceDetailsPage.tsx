@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
 import DarkClass from "../../components/classes/DarkClass";
 import LayoutV1 from "../../components/layouts/LayoutV1";
-import ServiceDetailsContent from "../../components/services/ServiceDetailsContent";
+import ServiceDetailsContent from "../../components/services/service1process";
 import ServicesV1Data from "../../assets/jsonData/services/ServicesV1Data.json"
 import { Helmet } from "react-helmet-async";
 import ThemeDark from "../../components/switcher/ThemeDark";

@@ -1,14 +1,18 @@
 import { Link } from "react-router-dom";
-import logoLight from "/assets/img/logo-light.png"
+import logoLight from "/assets/img/logo1.png"
 import MainMenuV2 from './MainMenuV2';
 import SocialShareV3 from '../social/SocialShareV3';
-import HeaderNewsLetter from './HeaderNewsLetter';
 import useSubMenuToggleV2 from "../../hooks/useSubMenuToggleV2";
 
 interface DataType {
     openMenu?: () => void;
     isInfoOpen?: boolean;
     openInfoBar?: () => void;
+    closeInfoBar?: () => void;
+}
+
+interface DataType {
+    
     closeInfoBar?: () => void;
 }
 
@@ -35,11 +39,11 @@ const SidebarMenu = ({ isInfoOpen, closeInfoBar, openInfoBar }: DataType) => {
                 </div>
                 <div className="col-lg-2">
                     <div className={`side ${isInfoOpen ? "on" : ""}`}>
-                        <Link to="#" className="close-side" onClick={closeInfoBar}>Close <i className="fas fa-times" /></Link>
+                        <Link to="#" className="close-side" onClick={closeInfoBar} style={{color:"red"}}>Close <i className="fas fa-times" /></Link>
                         <div className="widget">
                             <div className="logo">
-                                <Link to="/home-2">
-                                    <img src={logoLight} alt="Logo" />
+                                <Link to="/home-2" >
+                                    <img src={logoLight} alt="Logo"  style={{marginTop:"30px", marginBottom:"-10px"}}/>
                                 </Link>
                             </div>
                         </div>
@@ -60,29 +64,36 @@ const SidebarMenu = ({ isInfoOpen, closeInfoBar, openInfoBar }: DataType) => {
                                                     <li>
                                                         <div className="content">
                                                             <p>Address</p>
-                                                            <strong>A-104, Ayush Business Square, Talegaon Dabhade.</strong>
+                                                            <strong>Ayush Business Square, A-213, Varale, Talegaon Dabhade, Maharashtra 410507.</strong>
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div className="content">
                                                             <p>Email</p>
-                                                            <strong>info@MastermindWeb.in</strong>
+                                                            <a href="mailto:info@MastermindWeb.in" style={{ fontWeight: 'normal' }}>
+                                                                info@MastermindWeb.in
+                                                            </a>
                                                         </div>
+
                                                     </li>
                                                     <li>
                                                         <div className="content">
                                                             <p>Contact</p>
-                                                            <strong >+91 73858 55808</strong>
+                                                            <a href="tel:+917385855808" style={{ fontWeight: 'normal' }}>
+                                                                +91 73858 55808
+                                                            </a>
+                                                            <br />
+                                                            <a href="tel:+919175830994" style={{ fontWeight: 'normal' }}>
+                                                                +91 91758 30994
+                                                            </a>
                                                         </div>
+
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div className="widget newsletter">
-                                            <h4 className="title">Get Subscribed!</h4>
-                                            <HeaderNewsLetter />
-                                        </div>
                                         <div className="widget social">
+                                            <p style={{ fontSize: "18px", marginBottom: "10px", fontWeight:"bold" }}>Follow Us</p>
                                             <ul className="link">
                                                 <SocialShareV3 />
                                             </ul>

@@ -6,46 +6,58 @@ interface DataType {
 }
 
 const ContactV1 = ({ sectionClass }: DataType) => {
+    const isMobile = window.innerWidth <= 767;
+
     return (
         <>
-            <div className={`contact-area overflow-hidden relative ${sectionClass ? sectionClass : ""}`}>
+            <div id="contactform"  className={`contact-area overflow-hidden relative ${sectionClass ? sectionClass : ""}`}>
                 <div className="container">
                     <div className="contact-style-one-items">
                         <div className="row">
-                            <div className="col-tact-stye-one col-lg-4">
-                                <div className="contact-style-one-info">
-                                    <ul className="contact-address">
-                                        <li>
-                                            <a className="phone-link" href="tel:+4733378901"><i className="fas fa-user-headset" /> +4733378901</a>
-                                        </li>
-                                        <li>
-                                            <div className="info">
-                                                <h4>Location</h4>
-                                                <p>
-                                                    55 Main Street, The Grand Avenue <br /> 2nd Block, New York City
-                                                </p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div className="info">
-                                                <h4>Official Email</h4>
-                                                <a href="mailto:info@digital.com.com">info@digital.com</a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div className="info">
-                                                <ul className="social-link">
-                                                    <SocialShareV2 />
-                                                </ul>
-                                            </div>
-                                        </li>
-                                    </ul>
+                            {!isMobile && (
+                                <div className="col-tact-stye-one col-lg-4">
+                                    <div className="contact-style-one-info">
+                                        <ul className="contact-address">
+                                            <li>
+                                               <a className="phone-link" href="tel:+917385855808">
+                                                  <i className="fas fa-user-headset"></i> +91 73858 55808
+                                                </a> 
+                                                <br/>
+                                                <br/>
+                                                <a className="phone-link" href="tel:+919175830994">
+                                                  <i className="fas fa-user-headset"></i> +91 91758 30994
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <div className="info">
+                                                    <h4>Location</h4>
+                                                    <p>
+                                                      Ayush Business Square, A-213, Varale,<br /> Talegaon Dabhade, Maharashtra 410507.
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div className="info">
+                                                    <h4>Official Email</h4>
+                                                    <a href="mailto:info@MastermindWeb.in">info@MastermindWeb.in</a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div className="info">
+                                                    <h4>Follow Us</h4>
+                                                    <ul className="social-link">
+                                                        <SocialShareV2 />
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="col-tact-stye-one col-lg-7 offset-lg-1">
+                            )}
+                            <div className={`col-tact-stye-one ${isMobile ? 'col-12' : 'col-lg-7 offset-lg-1'}`}>
                                 <div className="contact-form-style-one">
                                     <h4 className="sub-title">Have Questions?</h4>
-                                    <h2 className="title">Send us a Massage</h2>
+                                    <h2 className="title">Contact Us</h2>
                                     <ContactForm />
                                 </div>
                             </div>

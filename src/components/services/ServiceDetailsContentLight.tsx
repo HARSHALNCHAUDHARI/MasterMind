@@ -1,6 +1,6 @@
 import banner6 from "/assets/img/banner/6.jpg";
-import portfolio45 from "/assets/img/portfolio/45.jpg";
-import portfolio46 from "/assets/img/portfolio/46.jpg";
+import portfolio45 from "/assets/img/portfolio/serives1.jpg";
+import portfolio46 from "/assets/img/portfolio/serives2.jpg";
 import ServicesV1Data from "../../assets/jsonData/services/ServicesV1Data.json";
 import { Link } from "react-router-dom";
 

@@ -2,37 +2,63 @@
     {
         "id": 1,
         "number": "01",
-        "title": "Digital Marketing",
+        "title": "Real Estate & Property",
         "thumb": "19.jpg"
     },
     {
         "id": 2,
         "number": "02",
-        "title": "Design",
+        "title": "Healthcare & Dental",
         "thumb": "35.jpg"
     },
     {
         "id": 3,
         "number": "03",
-        "title": "Branding Solutions",
+        "title": "Education & EdTech",
         "thumb": "21.jpg"
     },
     {
         "id": 4,
         "number": "04",
-        "title": "Development",
+        "title": "E-commerce & Retail",
         "thumb": "33.jpg"
     },
     {
         "id": 5,
         "number": "05",
-        "title": "Growth Tracking",
+        "title": "Startups & SMEs",
         "thumb": "34.jpg"
     },
     {
         "id": 6,
         "number": "06",
-        "title": "Consultant",
+        "title": "Hospitality & Travel",
+        "thumb": "36.jpg"
+    },
+        {
+        "id": 7,
+        "number": "07",
+        "title": "Finance & FinTech",
+        "thumb": "36.jpg"
+    },
+      {
+        "id": 8,
+        "number": "08",
+        "title": "Fashion & Lifestyle",
+        "thumb": "36.jpg"
+    },
+          {
+        "id": 9,
+        "number": "09",
+        "title": "Food & Beverage",
+        "thumb": "36.jpg"
+    },
+
+     {
+        "id": 10,
+        "number": "10",
+        "title": "Technology & SaaS",
         "thumb": "36.jpg"
     }
+    
 ]

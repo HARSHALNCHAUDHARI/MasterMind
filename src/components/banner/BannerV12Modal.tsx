@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import BannerV12Data from '../../assets/jsonData/banner/BannerV12Data.json';
-import portfolio11 from "/assets/img/portfolio/11.jpg"
-import portfolio13 from "/assets/img/portfolio/13.jpg"
-import portfolio14 from "/assets/img/portfolio/14.jpg"
-import portfolio15 from "/assets/img/portfolio/15.jpg"
+import portfolio11 from "/assets/img/portfolio/serives1.jpg"
+import portfolio13 from "/assets/img/portfolio/serives2.jpg"
+import portfolio14 from "/assets/img/portfolio/serives3.jpg"
+import portfolio15 from "/assets/img/portfolio/serives4.jpg"
+
 
 const BannerV12Modal = () => {
     return (

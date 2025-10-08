@@ -28,7 +28,7 @@ const QuickContact = ({ sectionClass, title, titleBold }: DataType) => {
                                         threshold={0.2}
                                         rootMargin="-50px"
                                     >
-                                        {title ? title : "Let's"} <span>&nbsp;</span> <strong>{titleBold ? titleBold : 'Join'}</strong>
+                                        {title ? title : "Get"} <span>&nbsp;</span> <strong>{titleBold ? titleBold : 'Touch'}</strong>
 
                                     </SplitTextV2>
                                 </h2>
@@ -38,7 +38,7 @@ const QuickContact = ({ sectionClass, title, titleBold }: DataType) => {
                                         Contrasted dissimilar get joy you instrument out reasonably. Again keeps at no meant stuff. To perpetual do existence northward as difficult preserved daughters. Continued at up to zealously necessary breakfast. Surrounded sir motionless she end literature. Gay direction neglected.
                                     </p>
                                     <div className="btn-large-border text-end">
-                                        <Link to="/contact-us"><i className="fas fa-long-arrow-right" /> Apply Now</Link>
+                                        <Link to="/ContactUsPage"><i className="fas fa-long-arrow-right" /> Get a Quote</Link>
                                     </div>
                                 </div>
                             </div>

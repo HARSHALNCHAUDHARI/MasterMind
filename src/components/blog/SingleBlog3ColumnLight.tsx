@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 interface DataType {
-    id?: number;
+    slug?: string;
     thumb?: string;
     title2?: string;
     date?: string;
@@ -9,13 +9,13 @@ interface DataType {
 }
 
 const SingleBlog3ColumnLight = ({ blog }: { blog: DataType }) => {
-    const { id, thumb, title2, date, author } = blog
+    const { slug, thumb, title2, date, author } = blog
 
     return (
         <>
             <div className="home-blog-style-one">
                 <div className="thumb">
-                    <Link to={`/blog-single-with-sidebar-light/${id}`}>
+                    <Link to={`/blogs-light/${slug}`}>
                         <img src={`/assets/img/blog/${thumb}`} width={800} height={600} alt="Thumb" />
                     </Link>
                     <div className="info">
@@ -28,9 +28,9 @@ const SingleBlog3ColumnLight = ({ blog }: { blog: DataType }) => {
                             </ul>
                         </div>
                         <h2 className="post-title">
-                            <Link to={`/blog-single-with-sidebar-light/${id}`}>{title2}</Link>
+                            <Link to={`/blogs-light/${slug}`}>{title2}</Link>
                         </h2>
-                        <Link to={`/blog-single-with-sidebar-light/${id}`} className="button-regular">
+                        <Link to={`/blogs-light/${slug}`} className="button-regular">
                             Continue Reading
                             <i className="fas fa-long-arrow-right" />
                         </Link>

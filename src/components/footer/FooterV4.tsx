@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import NewsletterV2 from '../newsletter/NewsletterV2';
 import FooterSocial from '../social/FooterSocial';
-import logoLight from '/assets/img/logo-light.png'
-import logo from '/assets/img/logo.png'
+import logoLight from '/assets/img/logo1.png'
+import logo from '/assets/img/logo1.png'
 
 interface DataType {
     sectionClass?: string

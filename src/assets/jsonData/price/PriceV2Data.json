@@ -1,102 +1,74 @@
 {
-    "monthlyPlans": [
+    "plans": [
         {
             "id": 1,
-            "title": "Basic Pack",
-            "description": "Cancel or Pause anytime",
+            "title": "The Local Launch",
+            "description": "Best for new local businesses, startups, and single-location service providers.",
             "features": [
-                "Number of inbound links",
-                "Site speed",
-                "Keyword usage",
-                "Automated management",
-                "Enterprise integrations"
+                "Primary Goal: Local Map Pack & Foundational Visibility",
+                "Keywords Targeted (Max): Up to 15 High-Intent Local Keywords",
+                "Technical SEO Audit: Foundational Audit & Critical Fixes",
+                "On-Page Optimization: 5 Key Service/Location Pages",
+                "Content Creation (Per Month): 1 Blog/Local Guide (500-800 words)",
+                "Local SEO: Full Google Business Profile (GBP) Optimization & Weekly Posts",
+                "Link Building (Off-Page): 2-3 High-Quality Niche Citations/Month",
+                "Conversion Rate Optimization (CRO): -",
+                "Reporting & Strategy: Standard Monthly Report",
+                "Dedicated Expert: SEO Specialist (Shared Resource)",
+                "Contract Term: 6-Month Minimum"
             ],
             "priceOriginal": null,
-            "priceDiscounted": 25,
-            "currency": "USD",
-            "billingCycle": "Monthly"
+            "priceDiscounted": 15000,
+            "currency": "INR",
+            "timeline": "Monthly Retainer",
+            "hosting": "Not included"
         },
         {
             "id": 2,
-            "title": "Growth Pack",
-            "description": "Cancel or Pause anytime",
+            "title": "The Growth Accelerator",
+            "description": "Best for growing SMEs, competitive local markets, and businesses targeting city-wide relevance.",
             "features": [
-                "Email Newsletter",
-                "Marketing Campaigns",
-                "Traffic Generation",
-                "Local video issuance",
-                "Automated management"
-            ],
-            "priceOriginal": 56,
-            "priceDiscounted": 42,
-            "currency": "USD",
-            "billingCycle": "Monthly"
-        },
-        {
-            "id": 3,
-            "title": "Elite Pack",
-            "description": "Cancel or Pause anytime",
-            "features": [
-                "Social Media Audit",
-                "Audience Research",
-                "Monthly Report",
-                "5 Social Accounts",
-                "Ad Account Setup"
-            ],
-            "priceOriginal": 60,
-            "priceDiscounted": 52,
-            "currency": "USD",
-            "billingCycle": "Monthly"
-        }
-    ],
-    "yearlyPlans": [
-        {
-            "id": 1,
-            "title": "Basic Pack",
-            "description": "Cancel or Pause anytime",
-            "features": [
-                "Number of inbound links",
-                "Site speed",
-                "Keyword usage",
-                "Automated management",
-                "Enterprise integrations"
+                "Primary Goal: High Organic Traffic & Lead Generation",
+                "Keywords Targeted (Max): Up to 40 Transactional & Informational Keywords",
+                "Technical SEO Audit: Comprehensive Monthly Audit & Fixes",
+                "On-Page Optimization: 10-15 Existing Pages + New Content Optimization",
+                "Content Creation (Per Month): 2 High-Value Blog Posts (1000-1500 words)",
+                "Local SEO: All of Local Launch + 50 Local Citations/Month",
+                "Link Building (Off-Page): 1-2 Authoritative Guest Posts/Month (White-Hat Outreach)",
+                "Conversion Rate Optimization (CRO): Basic CRO Recommendations",
+                "Reporting & Strategy: In-Depth Monthly Report & Strategy Call",
+                "Dedicated Expert: Senior SEO Strategist",
+                "Contract Term: 6-Month Minimum"
             ],
             "priceOriginal": null,
-            "priceDiscounted": 48,
-            "currency": "USD",
-            "billingCycle": "Monthly"
-        },
-        {
-            "id": 2,
-            "title": "Growth Pack",
-            "description": "Cancel or Pause anytime",
-            "features": [
-                "Email Newsletter",
-                "Marketing Campaigns",
-                "Traffic Generation",
-                "Local video issuance",
-                "Automated management"
-            ],
-            "priceOriginal": 76,
-            "priceDiscounted": 59,
-            "currency": "USD",
-            "billingCycle": "Monthly"
+            "priceDiscounted": 30000,
+            "currency": "INR",
+            "timeline": "Monthly Retainer",
+            "hosting": "Not included"
         },
         {
             "id": 3,
-            "title": "Elite Pack",
-            "description": "Cancel or Pause anytime",
+            "title": "The Market Dominator",
+            "description": "Best for enterprises, E-commerce stores, and high-growth companies seeking national/global reach.",
             "features": [
-                "Social Media Audit",
-                "Audience Research",
-                "Monthly Report",
-                "5 Social Accounts",
-                "Ad Account Setup"
+                "Primary Goal: Maximize Conversions & Market Share",
+                "Keywords Targeted (Max): 60+ Keywords Across All Funnel Stages",
+                "Technical SEO Audit: Enterprise-Level Audit, Schema & Site Architecture",
+                "On-Page Optimization: Full Website Optimization (Up to 50 Pages)",
+                "Content Creation (Per Month): 4+ Expert Articles/Content Hub Development",
+                "Local SEO: Multi-Location Strategy & Advanced Reputation Management",
+                "Link Building (Off-Page): Aggressive, Strategic Link Acquisition & Digital PR Campaigns",
+                "Conversion Rate Optimization (CRO): Dedicated Monthly CRO Audit & Implementation",
+                "Reporting & Strategy: Weekly Performance Review & Dedicated Project Manager",
+                "Dedicated Expert: Dedicated SEO Expert & Team Lead",
+                "Contract Term: 12-Month Minimum (Recommended)"
             ],
-            "priceOriginal": 95,
-            "priceDiscounted": 86,
-            "currency": "USD",
-            "billingCycle": "Yearly"
+            "priceOriginal": null,
+            "priceDiscounted": 60000,
+            "currency": "INR",
+            "timeline": "Monthly Retainer",
+            "hosting": "Not included",
+            "note": "Custom Quote"
         }
     ]
 }

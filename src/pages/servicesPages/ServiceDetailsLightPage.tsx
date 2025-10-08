@@ -4,7 +4,7 @@ import LayoutV1 from "../../components/layouts/LayoutV1";
 import ServicesV1Data from "../../assets/jsonData/services/ServicesV1Data.json";
 import { Helmet } from "react-helmet-async";
 import ThemeLight from "../../components/switcher/ThemeLight";
-import ServiceDetailsContent from "../../components/services/ServiceDetailsContent";
+import ServiceDetailsContent from "../../components/services/service1process";
 
 const ServiceDetailsLightPage = () => {
 

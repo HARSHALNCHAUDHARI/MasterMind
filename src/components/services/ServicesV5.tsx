@@ -13,7 +13,7 @@ const ServicesV5 = ({ sectionClass }: DataType) => {
                     <div className="row">
                         <div className="col-lg-23">
                             <div className="heading-fixed">
-                                <h2 className="fixed-heading">Services</h2>
+                                <h2 className="fixed-heading">Industries We Work With</h2>
                             </div>
                         </div>
                     </div>

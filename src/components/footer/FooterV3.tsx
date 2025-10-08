@@ -1,7 +1,3 @@
-import { Link } from "react-router-dom";
-import NewsletterV2 from '../newsletter/NewsletterV2';
-import FooterSocial from '../social/FooterSocial';
-
 const FooterV3 = () => {
     return (
         <>
@@ -9,57 +5,76 @@ const FooterV3 = () => {
                 <div className="footer-box">
                     <div className="container">
                         <div className="f-items">
+                            {/* Centered Heading */}
                             <div className="row">
-                                <div className="col-lg-6 footer-item about pr-120 pr-md-15 pr-xs-15 pr-md-15 pr-xs-15">
+                                <div className="col-12 text-center mb-4 footer-item">
                                     <div className="top">
                                         <h2>Get Support?</h2>
-                                        <a className="quick-btn" href="mailto:someone@example.com">
-                                            <i className="fas fa-long-arrow-right" />
-                                        </a>
                                     </div>
-                                    <ul className="address-list">
-                                        <li>
-                                            <h4>Australia</h4>
-                                            <p>
-                                                Travel World House, Level 7, 17 Jones St, NSW, 2060
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <h4>Dubai</h4>
-                                            <p>
-                                                Sheikh Mohammed bin Salah, #234 B - Downtown - Dubai
-                                            </p>
-                                        </li>
-                                    </ul>
                                 </div>
-                                <div className="col-lg-5 offset-lg-1 footer-item">
-                                    <h4 className="widget-title">Useful Link</h4>
-                                    <ul className="useful-link">
-                                        <li><Link to="/about-us">About Us</Link></li>
-                                        <li><Link to="/contact-us">Contact</Link></li>
-                                        <li><Link to="/faq">FAQS</Link></li>
-                                        <li><Link to="/services">Services</Link></li>
-                                        <li><Link to="/about-2">Term & Conditions</Link></li>
-                                        <li><Link to="/about-us">Privacy Policy</Link></li>
-                                        <li><Link to="/about-2">Careers</Link></li>
-                                        <li><Link to="/contact-us">Help Desk</Link></li>
-                                    </ul>
-                                    <NewsletterV2 />
+                            </div>
+                            
+                            <div className="row">
+                                {/* Left Section - Quick Links & Social Links */}
+                                <div className="col-lg-6 footer-item">
+                                    {/* Address Information */}
+                                    <div className="address-list md:ml-50">
+                                        <h4 className="widget-title">Contact Info</h4>
+                                        <ul className="contact-info-list mb-4 mobile-center">
+                                            <li className="contact-item">
+                                                <i className="fas fa-phone fa-rotate-90"></i>
+                                                <div className="phone-numbers">
+                                                    
+                                                    <a href="tel:+917385855808">+91 73858 55808</a>
+                                                   
+                                                    <a href="tel:+919175830994">+91 91758 30994</a>
+                                                </div>
+                                            </li>
+                                            <li className="contact-item">
+                                                <i className="fas fa-envelope"></i>
+                                                <a href="mailto:info@MastermindWeb.in">info@MastermindWeb.in</a>
+                                            </li>
+                                            <li className="contact-item">
+                                                <i className="fas fa-map-marker-alt"></i>
+                                                <span>Ayush Business Square, A-213, Varale,<br/> Talegaon Dabhade, Maharashtra 410507.</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+
                                 </div>
+                                
+                                {/* Right Section - Google Map & Address */}
+                                <div className="col-lg-6 footer-item ">
+                                    <h4 className="widget-title">Find Us</h4>
+                                    
+                                    {/* Google Map Embed */}
+                                    <div className="map-container mb-4">
+                                        
+                                        <iframe
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3778.1675338572404!2d73.68662437536136!3d18.746052282391798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b3e95bec21e3%3A0xcaf78af4c01eaaf!2sMasterMind%20Web%20Developers%20Pune!5e0!3m2!1sen!2sin!4v1756501852587!5m2!1sen!2sin"
+                                            width="80%"
+                                            height="250"
+                                            style={{ border: 0, borderRadius: '8px' }}
+                                            allowFullScreen={true}
+                                            loading="lazy"
+                                            referrerPolicy="no-referrer-when-downgrade"
+                                            title="Office Location"
+                                        />
+                                    </div>
+                                
+                                </div>
+                              
                             </div>
                         </div>
                     </div>
+                    
+                    {/* Footer Bottom */}
                     <div className="footer-bottom">
                         <div className="container">
                             <div className="row">
-                                <div className="col-lg-6">
-                                    <ul className="footer-social">
-                                        <FooterSocial />
-                                    </ul>
-                                </div>
-                                <div className="col-lg-6 text-end">
+                                <div className="col-12 text-center">
                                     <p>
-                                        Copyright &copy; {(new Date().getFullYear())} Dixor. All Rights Reserved
+                                        Copyright &copy; {(new Date().getFullYear())} MasterMind. All Rights Reserved
                                     </p>
                                 </div>
                             </div>

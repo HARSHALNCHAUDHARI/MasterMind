@@ -1,7 +1,7 @@
 import SocialShareV3 from '../social/SocialShareV3';
 import { Link } from "react-router-dom";
 import HeaderNewsLetter from './HeaderNewsLetter';
-import logoLight from '/assets/img/logo-light.png';
+import logoLight from '/assets/img/logo1.png';
 
 interface SidebarInfoProps {
     openInfoBar?: () => void;

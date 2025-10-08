@@ -1,7 +1,7 @@
 import MainMenu from "./MainMenu";
 import { Link } from "react-router-dom";
-import logo from '/assets/img/logo.png';
-import logoLight from '/assets/img/logo-light.png';
+import logo from '/assets/img/logo1.png';
+import logoLight from '/assets/img/logo1.png';
 import useSidebarMenu from "../../hooks/useSidebarMenu";
 import useSubMenuToggle from "../../hooks/useSubMenuToggle";
 import useStickyMenu from "../../hooks/useStickyMenu";

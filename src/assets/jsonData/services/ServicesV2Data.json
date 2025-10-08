@@ -3,30 +3,90 @@
         "id": 1,
         "activeClass": "active",
         "icon": "17.png",
-        "subTitle": "Connection",
-        "title": "Perfect UI/UX Designing",
-        "text": "Continue indulged speaking the was out horrible for domestic position. Seeing rather her you not esteem men settle genius excuse. Deal say over you age from. Comparison new.",
-        "listData": ["Information architecture", "Digital Designer", "Interaction design"],
-        "illustration": "2.png"
+        "subTitle": "Development",
+        "title": "Custom, Scalable Web Solutions",
+        "text": "We create tailored websites designed to meet your unique needs, ensuring scalability for future growth. Our solutions are built with modern architecture to adapt as your business evolves.",
+        "listData": ["Custom web applications", "Scalable architecture", "Future-ready solutions"],
+        "illustration": "logo3.png"
     },
     {
         "id": 2,
         "activeClass": "",
         "icon": "18.png",
-        "subTitle": "Collaboration",
-        "title": "Social Media Marketing",
-        "text": "Regular indulged speaking the was out horrible for domestic position. Seeing rather her you not esteem men settle genius excuse. Deal say over you age from. Comparison new.",
-        "listData": ["Content marketing", "Affiliate marketing", "Search engine optimization"],
-        "illustration": "3.png"
+        "subTitle": "Design",
+        "title": "Mobile-First & Responsive Design",
+        "text": "Our designs work flawlessly across all devices, offering users an exceptional browsing experience. Every element is crafted to ensure perfect functionality on mobile, tablet, and desktop.",
+        "listData": ["Mobile-first approach", "Cross-device compatibility", "Exceptional user experience"],
+        "illustration": "logo3.png"
     },
     {
         "id": 3,
         "activeClass": "",
         "icon": "19.png",
-        "subTitle": "Innovations",
-        "title": "Branding & Stationery",
-        "text": "Continue indulged speaking the was out horrible for domestic position. Seeing rather her you not esteem men settle genius excuse. Deal say over you age from. Comparison new.",
-        "listData": ["Product branding", "Retail branding", "Service branding"],
-        "illustration": "4.png"
+        "subTitle": "Optimization",
+        "title": "SEO-Optimized Development",
+        "text": "We build websites with SEO best practices, helping you rank higher and reach your audience. Our development process integrates technical SEO from the ground up.",
+        "listData": ["Technical SEO integration", "Higher search rankings", "Audience reach optimization"],
+        "illustration": "logo3.png"
+    },
+    {
+        "id": 4,
+        "activeClass": "",
+        "icon": "20.png",
+        "subTitle": "Performance",
+        "title": "Fast Load Times & Clean Code",
+        "text": "Speed matters—our lightweight code ensures quick loading and better performance for your visitors. We optimize every aspect for maximum efficiency and user satisfaction.",
+        "listData": ["Lightweight code structure", "Quick loading times", "Performance optimization"],
+        "illustration": "logo3.png"
+    },
+    {
+        "id": 5,
+        "activeClass": "",
+        "icon": "21.png",
+        "subTitle": "Flexibility",
+        "title": "CMS Flexibility (WordPress, Custom, etc.)",
+        "text": "From WordPress to fully custom platforms, we provide solutions that match your technical preferences. Choose the content management system that works best for your team.",
+        "listData": ["WordPress expertise", "Custom CMS solutions", "Technical flexibility"],
+        "illustration": "logo3.png"
+    },
+    {
+        "id": 6,
+        "activeClass": "",
+        "icon": "22.png",
+        "subTitle": "Reliability",
+        "title": "Transparent Pricing & Timely Delivery",
+        "text": "Clear pricing and strict timelines mean you always know what to expect, with no surprises. We believe in honest communication and dependable project management.",
+        "listData": ["Clear pricing structure", "Strict timeline adherence", "No hidden surprises"],
+        "illustration": "logo3.png"
+    },
+    {
+        "id": 7,
+        "activeClass": "",
+        "icon": "23.png",
+        "subTitle": "Support",
+        "title": "Post-Launch Support & Maintenance",
+        "text": "We don't just launch your site—we keep it updated, secure, and running smoothly post-deployment. Our ongoing support ensures your website stays current and secure.",
+        "listData": ["Ongoing updates", "Security maintenance", "Continuous support"],
+        "illustration": "logo3.png"
+    },
+    {
+        "id": 8,
+        "activeClass": "",
+        "icon": "24.png",
+        "subTitle": "Results",
+        "title": "Proven Track Record",
+        "text": "Over the past 5 years, we've delivered 120+ websites across industries—boosting client conversion rates by an average of 28% and reducing bounce rates by up to 40%. Our portfolio spans from education portals attracting 50,000+ monthly visitors to eCommerce stores increasing sales by 35%.",
+        "listData": ["120+ websites delivered", "28% average conversion boost", "40% bounce rate reduction"],
+        "illustration": "logo3.png"
+    },
+    {
+        "id": 9,
+        "activeClass": "",
+        "icon": "25.png",
+        "subTitle": "Partnership",
+        "title": "Client-First Approach",
+        "text": "Your goals guide our process; we prioritize your vision and feedback every step of the way. We're more than just a web development company—we're your long-term digital partner committed to your success.",
+        "listData": ["Vision-driven process", "Continuous feedback integration", "Long-term partnership"],
+        "illustration": "logo3.png"
     }
 ]

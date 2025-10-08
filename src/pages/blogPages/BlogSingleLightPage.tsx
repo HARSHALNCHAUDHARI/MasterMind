@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
 import LayoutV1 from "../../components/layouts/LayoutV1";
-import BlogV3Data from "../../assets/jsonData/blog/BlogV3Data.json"
+import BlogV3Data from "../../../src/assets/jsonData/blog/BlogV3Data.json"
 import { Helmet } from "react-helmet-async";
 import ThemeLight from "../../components/switcher/ThemeLight";
 import BlogSingleContent from "../../components/blog/BlogSingleContent";

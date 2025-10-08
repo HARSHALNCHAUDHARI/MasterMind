@@ -1,34 +1,90 @@
 [
     {
         "id": 1,
-        "titleFirst": "Marketing SEO",
-        "titleLast": "Optimization",
+        "titleFirst": "ReactJS – Interactive &",
+        "titleLast": "Component-Based UI",
         "icon": "9.png",
-        "text": "Regular at up zealously necessary is regular breakfast. Surrounded motionless she end literature. Time is neglects supported yet melancho themselve. Biggest agencies. The user experience: the first mention of the user and its.",
+        "text": "We leverage ReactJS to create lightning-fast, dynamic user interfaces with reusable components for efficient development. React's component architecture ensures maintainable code and exceptional user experiences.",
         "number": "01"
     },
     {
         "id": 2,
-        "titleFirst": "Mobile App &",
-        "titleLast": "Web Development",
+        "titleFirst": "NextJS – SEO-Friendly &",
+        "titleLast": "High-Performance Apps",
         "icon": "11.png",
-        "text": "Continued at up zealously necessary is regular breakfast. Surrounded motionless she end literature. Time is neglects supported yet melancho themselve. Biggest agencies. The user experience: the first mention of the user and its.",
+        "text": "NextJS enables server-side rendering and optimized performance, helping your site load faster and rank better. Our Next.js implementations deliver superior SEO results and lightning-fast page loads.",
         "number": "02"
     },
     {
         "id": 3,
-        "titleFirst": "UI/UX Design",
-        "titleLast": "from Professionals",
+        "titleFirst": "MongoDB – Flexible &",
+        "titleLast": "Scalable Database",
         "icon": "12.png",
-        "text": "Continued at up zealously necessary is regular breakfast. Surrounded motionless she end literature. Time is neglects supported yet melancho themselve. Biggest agencies. The user experience: the first mention of the user and its.",
+        "text": "For modern web applications, we use MongoDB to store and manage data with speed and reliability. This NoSQL database solution scales effortlessly with your growing business needs.",
         "number": "03"
     },
     {
         "id": 4,
-        "titleFirst": "Access to the",
-        "titleLast": "Latest Technology",
+        "titleFirst": "Python – Powerful",
+        "titleLast": "Backend Development",
         "icon": "13.png",
-        "text": "Continued at up zealously necessary is regular breakfast. Surrounded motionless she end literature. Time is neglects supported yet melancho themselve. Biggest agencies. The user experience: the first mention of the user and its.",
+        "text": "Python's versatility allows us to build secure, scalable, and feature-rich backend systems for complex web solutions. We create robust APIs and data processing systems with Python's extensive libraries.",
         "number": "04"
+    },
+    {
+        "id": 5,
+        "titleFirst": "Node.js – Real-Time &",
+        "titleLast": "Scalable Solutions",
+        "icon": "14.png",
+        "text": "Node.js helps us develop fast, event-driven applications capable of handling large volumes of traffic seamlessly. Perfect for real-time applications and high-performance web services.",
+        "number": "05"
+    },
+    {
+        "id": 6,
+        "titleFirst": "Angular – Structured &",
+        "titleLast": "Scalable Frontend",
+        "icon": "15.png",
+        "text": "Angular is ideal for creating enterprise-grade, single-page applications with a clean and maintainable code structure. We build sophisticated web applications with Angular's powerful framework.",
+        "number": "06"
+    },
+    {
+        "id": 7,
+        "titleFirst": "GenAI – Next-Gen",
+        "titleLast": "AI-Powered Experiences",
+        "icon": "16.png",
+        "text": "We integrate Generative AI to create intelligent, automated, and personalized website features that enhance user engagement. AI-powered chatbots, content generation, and smart recommendations.",
+        "number": "07"
+    },
+    {
+        "id": 8,
+        "titleFirst": "HTML5 – Modern",
+        "titleLast": "Website Structure",
+        "icon": "17.png",
+        "text": "HTML5 forms the backbone of our websites, ensuring clean, semantic code and cross-browser compatibility. We use modern HTML5 features for better accessibility and performance.",
+        "number": "08"
+    },
+    {
+        "id": 9,
+        "titleFirst": "CSS3 – Stylish &",
+        "titleLast": "Responsive Design",
+        "icon": "18.png",
+        "text": "We use CSS3 for modern layouts, animations, and mobile-friendly designs that work on every screen size. Advanced styling techniques create visually stunning and responsive interfaces.",
+        "number": "09"
+    },
+    {
+        "id": 10,
+        "titleFirst": "JavaScript – Dynamic",
+        "titleLast": "User Interactions",
+        "icon": "19.png",
+        "text": "JavaScript enables interactive features, smooth navigation, and a more engaging browsing experience for users. We create dynamic web experiences with modern JavaScript frameworks and libraries.",
+        "number": "10"
+    },
+    {
+        "id": 11,
+        "titleFirst": "PHP – Secure &",
+        "titleLast": "Scalable Backend",
+        "icon": "20.png",
+        "text": "PHP allows us to build robust, database-driven websites with strong security and easy scalability. Our PHP development ensures reliable server-side functionality and seamless database integration.",
+        "number": "11"
     }
 ]

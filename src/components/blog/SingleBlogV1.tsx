@@ -17,7 +17,7 @@ const SingleBlogV1 = ({ blog }: { blog: DataType }) => {
         <>
             <div className="home-blog-one">
                 <div className="thumb">
-                    <Link to={`/blog-single-with-sidebar/${id}`}>
+                    <Link to={`/blogs/${id}`}>
                         <img src={`/assets/img/blog/${thumb}`} alt="Image Not Found" width={800} height={1000} />
                     </Link>
                     <div className="date">{dateFull}</div>
@@ -33,8 +33,8 @@ const SingleBlogV1 = ({ blog }: { blog: DataType }) => {
                             </li>
                         </ul>
                     </div>
-                    <h3><Link to={`/blog-single-with-sidebar/${id}`}>{title}</Link></h3>
-                    <Link to={`/blog-single-with-sidebar/${id}`} className="button-regular">
+                    <h3><Link to={`/blogs/${id}`}>{title}</Link></h3>
+                    <Link to={`/blogs/${id}`} className="button-regular">
                         Continue Reading
                     </Link>
                 </div>

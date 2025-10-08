@@ -19,6 +19,11 @@ Version: 1.0
 /* Default for supporting bootstrap */
 
 
+
+
+
+
+
 @media (min-width: 768px) {
 
 	.nav-box .container,
@@ -868,6 +873,7 @@ body {
 	max-height: inherit !important;
 	height: 100%;
 	width: 100%;
+	justify-self: center;
 
 }
 
@@ -880,11 +886,13 @@ body {
 	width: 100%;
 	background: var(--dark);
 	z-index: -1;
+	justify-content: center;
 }
 
 .nav-full-width .side .widget .logo::after {
-	background: var(--dark-secondary);
+	background: transparent;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	
 }
 
 .side.on {
@@ -893,6 +901,7 @@ body {
 
 .side .widget .logo img {
 	height: 40px;
+    
 }
 
 body.on-side nav.navbar::after {
@@ -1021,32 +1030,50 @@ body.bg-dark.on-side nav.navbar::after {
 	float: left;
 }
 
+/*
+ * This targets the <ul> element directly, turning IT into the grid.
+ * This is the key change that will fix the alignment.
+*/
+.navbar .side .widget.social ul {
+    display: grid;
+    grid-template-columns: repeat(4, auto); /* Creates 4 columns */
+    gap: 10px 10px; /* 10px vertical gap, 15px horizontal gap */
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+/* This just resets the list items */
+.navbar .side .widget.social li {
+    margin: 0;
+}
+
+/* Your original styling for the links, which is correct */
 .navbar .side .widget.social li a {
-	display: flex;
-	font-weight: 600;
-	height: 45px;
-	line-height: 45px;
-	margin-right: 5px;
-	margin-top: 5px;
-	padding: 0;
-	text-align: center;
-	width: 45px;
-	border-radius: 50%;
-	align-items: center;
-	justify-content: center;
-	background: var(--dark) !important;
-	color: var(--white);
+    display: flex;
+    font-weight: 600;
+    height: 45px;
+    line-height: 45px;
+    padding: 0;
+    text-align: center;
+    width: 45px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background: var(--dark) !important;
+    color: var(--white);
 }
 
 .navbar .side .widget.social li a img {
-	height: 17px;
+    height: 17px;
 }
 
 .navbar .side .widget.social li a:hover {
-	background: var(--dark) none repeat scroll 0 0 !important;
-	color: var(--white);
-	border-color: var(--dark);
+    background: var(--dark) none repeat scroll 0 0 !important;
+    color: var(--white);
+    border-color: var(--dark);
 }
+
 
 .attr-nav .fa-search {
 	font-weight: 400;
@@ -1984,6 +2011,9 @@ nav.navbar.validnavs.brand-center {
 		border-right: 1px solid #dddddd;
 		padding-right: 50px;
 		float: left;
+		height: 100%;
+		width: 100%;
+		max-width: 180px;
 	}
 
 	.bg-dark nav.navbar.validnavs.navbar-fixed.nav-full-width .navbar-header {
@@ -2241,9 +2271,11 @@ nav.navbar.validnavs.navbar-fixed.nav-full-width .navbar-header::after {
 	line-height: 2;
 }
 
+
+
 ul.simple-menu-list>li>a {
 	text-transform: uppercase;
-	font-size: 50px;
+	font-size: 40px;
 	border-bottom: 1px solid #cccccc;
 }
 
@@ -4414,6 +4446,6 @@ nav.navbar.validnavs.navbar-fixed img.logo {
 .bg-dark nav.navbar.validnavs.navbar-fixed img.logo-dark {
 	height: 100%;
 	width: 100%;
-	max-width: 150px;
+	max-width: 180px;
 }
 

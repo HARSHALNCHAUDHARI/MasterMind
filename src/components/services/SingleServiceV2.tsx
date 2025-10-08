@@ -12,16 +12,22 @@ interface DataType {
     illustration?: string;
 }
 
-const SingleServiceV2 = ({ service }: { service: DataType }) => {
-    const { id, icon, subTitle, title, text, listData, illustration } = service;
+interface SingleServiceV2Props {
+    service: DataType;
+    style?: React.CSSProperties;
+}
 
+const SingleServiceV2 = ({ service, style }: SingleServiceV2Props) => {
+    const { id, icon, subTitle, title, text, listData, illustration } = service;
+    
     const { activeIndex, hoveredIndex, handleMouseEnter, handleMouseLeave, handleMouseMove, handleMouseLeaveWrapper } = useHoverEffects();
 
     return (
         <li
-            className={`hover-active-item ${activeIndex === hoveredIndex ? 'active' : ''}`}
+            className={`hover-active-item transition-all duration-500 ${activeIndex === hoveredIndex ? 'active' : ''}`}
             onMouseEnter={() => handleMouseEnter(id)}
-            onMouseLeave={handleMouseLeave} // Call without index
+            onMouseLeave={handleMouseLeave}
+            style={style}
         >
             <Link
                 to={`/service-details/${id}`}
@@ -46,11 +52,6 @@ const SingleServiceV2 = ({ service }: { service: DataType }) => {
                                 <li key={index}>{data}</li>
                             ))}
                         </ul>
-                    </div>
-                    <div className="arrow">
-                        <strong className="btn-arrow-xl">
-                            <i className="fas fa-long-arrow-right" />
-                        </strong>
                     </div>
                 </div>
 

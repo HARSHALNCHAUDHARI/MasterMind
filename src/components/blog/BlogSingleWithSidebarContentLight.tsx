@@ -127,13 +127,13 @@ const BlogSingleWithSidebarContentLight = ({ blogInfo, totalBlogs, sectionClass 
                                 {/* Post Pagination */}
                                 <div className="post-pagi-area">
                                     <div className="post-previous">
-                                        <Link to={`/blog-single-with-sidebar-light/${previousId}`}>
+                                        <Link to={`/blogs-light/${previousId}`}>
                                             <div className="icon"><i className="fas fa-angle-double-left"></i></div>
                                             <div className="nav-title"> Previous Post <h5>{getFirstTwoWords(previousBlog?.title)}</h5></div>
                                         </Link>
                                     </div>
                                     <div className="post-next">
-                                        <Link to={`/blog-single-with-sidebar-light/${nextId}`}>
+                                        <Link to={`/blogs-light/${nextId}`}>
                                             <div className="nav-title">Next Post <h5>{getFirstTwoWords(nextBlog?.title)}</h5></div>
                                             <div className="icon"><i className="fas fa-angle-double-right"></i></div>
                                         </Link>

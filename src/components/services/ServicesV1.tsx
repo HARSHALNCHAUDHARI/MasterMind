@@ -32,18 +32,20 @@ const ServicesV1 = ({ hasTitle, sectionClass }: DataType) => {
                                 <div className="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 text-center">
                                     <div className="site-heading">
                                         <h4 className="sub-title">Services we offer</h4>
-                                        <h2 className="title split-text">
-                                            <SplitText
-                                                delay={40}
-                                                animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
-                                                animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-                                                easing="easeOutCubic"
-                                                threshold={0.2}
-                                                rootMargin="-50px"
-                                            >
-                                                Turn Information Into Actionable Insights
-                                            </SplitText>
-                                        </h2>
+                                <h2 className="title10 split-text">
+    <SplitText
+        delay={120}
+        animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+        animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+        easing="easeOutCubic"
+        threshold={0.2}
+        rootMargin="-50px"
+    >
+        Why Choose Us as Your Web <br />
+        Development Company in Pune
+    </SplitText>
+</h2>
+
                                     </div>
                                 </div>
                             </div>

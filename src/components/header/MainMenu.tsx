@@ -149,18 +149,18 @@ const MainMenu = ({ navbarPlacement, toggleSubMenu }: DataType) => {
                         <li><Link to="/blog-standard">Blog Standard</Link></li>
                         <li><Link to="/blog-with-sidebar">Blog With Sidebar</Link></li>
                         <li><Link to="/blog-2-column">Blog Grid Two column</Link></li>
-                        <li><Link to="/blog-3-column">Blog Grid Three column</Link></li>
+                        <li><Link to="/blogs">Blog Grid Three column</Link></li>
                         <li><Link to="/blog-single/1">Blog Single</Link></li>
-                        <li><Link to="/blog-single-with-sidebar/1">Blog Single With Sidebar</Link></li>
+                        <li><Link to="/blogs/1">Blog Single With Sidebar</Link></li>
                         <li className="dropdown">
                             <Link to="#" className="dropdown-toggle" data-toggle="dropdown" onClick={toggleSubMenu}>Blog Light Version</Link>
                             <ul className="dropdown-menu">
                                 <li><Link to="/blog-standard-light">Blog Standard</Link></li>
                                 <li><Link to="/blog-with-sidebar-light">Blog With Sidebar</Link></li>
                                 <li><Link to="/blog-2-column-light">Blog Grid Two column</Link></li>
-                                <li><Link to="/blog-3-column-light">Blog Grid Three column</Link></li>
+                                <li><Link to="/blogs-light">Blog Grid Three column</Link></li>
                                 <li><Link to="/blog-single-light/1">Blog Single</Link></li>
-                                <li><Link to="/blog-single-with-sidebar-light/1">Blog Single With Sidebar</Link>
+                                <li><Link to="/blogs-light/1">Blog Single With Sidebar</Link>
                                 </li>
                             </ul>
                         </li>

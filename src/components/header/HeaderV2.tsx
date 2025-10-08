@@ -32,7 +32,7 @@ const HeaderV2 = () => {
                         <div className="col-xl-7 col-lg-6">
                             <div className={`collapse navbar-collapse ${isOpen ? "show collapse-mobile" : "collapse-mobile"}`} id="navbar-menu">
                                 <div className="left-info">
-                                    <p><strong>Contact</strong> <a href="mailto:support@avrix.com">info@MastermindWeb.in</a></p>
+                                    
                                 </div>
                                 <div className="right-info">
                                     <ul>

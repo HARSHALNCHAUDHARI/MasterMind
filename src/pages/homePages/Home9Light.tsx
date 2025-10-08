@@ -9,9 +9,10 @@ import TeamV3 from '../../components/team/TeamV3';
 import BlogV2 from '../../components/blog/BlogV2';
 import FooterV3 from '../../components/footer/FooterV3';
 import { Helmet } from 'react-helmet-async';
-import ThemeLight from '../../components/switcher/ThemeLight';
+import ThemeLight from "../../components/switcher/ThemeLight";
 import MultiSection from '../../components/multi/MultiSection';
-import ServicesV1 from '../../components/services/ServicesV1';
+import BannerV12 from "../../components/banner/BannerV12";
+import CursorEffect from "../../components/animation/CursorEffect";
 
 const Home9Light = () => {
     return (
@@ -24,7 +25,8 @@ const Home9Light = () => {
             <BannerV1 />
             <BrandV1 />
             <AboutV1 lightMode={true} />
-            <ServicesV1 sectionClass='default-padding bg-gray' hasTitle={true} />
+            <BannerV12 />
+            <CursorEffect />
             <ProjectV2Light />
             <PriceV2 />
             <TestimonialV1 />

@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "icon": "9.png",
+        "subTitle": "Deep-Dive Analysis",
+        "title": "Website Audit & SEO Strategy",
+        "text": "Before starting, our expert SEO consultant performs a deep-dive analysis of your site’s health, performance, competitor landscape, and current rankings to formulate a winning, data-backed strategy tailored to your business goals.",
+        "number": "01"
+    },
+    {
+        "id": 2,
+        "icon": "10.png",
+        "subTitle": "Strong Foundations",
+        "title": "Technical SEO",
+        "text": "We ensure your website's foundation is flawless. This covers everything from optimizing site speed, implementing secure HTTPS, correcting crawl errors, managing sitemaps, and ensuring superior mobile-friendliness for top search engine compliance.",
+        "number": "02"
+    },
+    {
+        "id": 3,
+        "icon": "11.png",
+        "subTitle": "Targeted Opportunities",
+        "title": "Keyword Research & Mapping",
+        "text": "We move beyond basic keywords. Our in-depth research identifies high-intent, low-competition terms and long-tail phrases to connect you with customers ready to buy, strategically mapping them to the most relevant pages.",
+        "number": "03"
+    },
+    {
+        "id": 4,
+        "icon": "12.png",
+        "subTitle": "Content & Relevance",
+        "title": "On-Page Optimization",
+        "text": "Our service optimizes all elements visible to users and search engines—including H1-H6 tags, title tags, meta descriptions, image alt text, and content quality—to ensure maximum relevance for your target keywords.",
+        "number": "04"
+    },
+    {
+        "id": 5,
+        "icon": "13.png",
+        "subTitle": "Authority Building",
+        "title": "Off-Page SEO & Link Building",
+        "text": "Authority is built off-site. We execute sophisticated white-hat link-building campaigns, securing high-quality, authoritative backlinks from relevant industry sources to dramatically increase your domain authority (DA) and ranking power.",
+        "number": "05"
+    },
+    {
+        "id": 6,
+        "icon": "14.png",
+        "subTitle": "Local Visibility",
+        "title": "Local SEO",
+        "text": "Dominate the Pune market. We optimize your Google Business Profile (GBP), manage local citations, and generate targeted local reviews to ensure your business appears in the \"Map Pack\" for all location-specific searches like \"best seo services in pune.\"",
+        "number": "06"
+    },
+    {
+        "id": 7,
+        "icon": "15.png",
+        "subTitle": "Store Optimization",
+        "title": "Ecommerce SEO",
+        "text": "For online stores, we focus on product category optimization, schema markup implementation, fast loading speeds, and optimizing for high-converting keywords to maximize product visibility and boost online sales.",
+        "number": "07"
+    },
+    {
+        "id": 8,
+        "icon": "16.png",
+        "subTitle": "Transparent Insights",
+        "title": "SEO Reporting & Analytics",
+        "text": "Full transparency is our promise. You receive monthly, in-depth reports tracking key performance indicators (KPIs) like organic traffic, keyword rankings, conversion rate, and return on investment (ROI), so you always know your progress.",
+        "number": "08"
+    }
+]

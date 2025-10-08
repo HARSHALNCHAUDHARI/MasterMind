@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+          "icon": "17.png",
+        "subTitle": "Profit-Driven Focus",
+        "title": "ROI-Focused Strategies",
+        "text": "We treat your budget as our own, prioritizing strategies that deliver the highest possible return on investment (ROI) and maximizing your profit margins.",
+        "illustration": "logo3.png"
+    },
+    {
+        "id": 2,
+        "icon": "18.png",
+        "subTitle": "Proven Success",
+        "title": "Proven Track Record",
+        "text": "Our history is filled with successful client stories—from startups to enterprises—who have achieved first-page rankings and exponential organic growth.",
+        "illustration": "logo3.png"
+    },
+    {
+        "id": 3,
+        "icon": "19.png",
+        "subTitle": "Sustainable Ranking",
+        "title": "White-Hat SEO Techniques",
+        "text": "We only use ethical, Google-compliant 'white-hat' SEO methods, guaranteeing sustainable results that protect your brand's future.",
+       "illustration": "logo3.png"
+    },
+    {
+        "id": 4,
+        "icon": "20.png",
+        "subTitle": "Future-Proof Optimization",
+        "title": "Google-Compliant Practices",
+        "text": "Our strategies are continuously updated to align with the latest Google Core Updates, ensuring your rankings remain stable and secure.",
+       "illustration": "logo3.png"
+    },
+    {
+        "id": 5,
+        "icon": "21.png",
+        "subTitle": "Tailored Campaigns",
+        "title": "Industry-Specific Strategies",
+        "text": "Our expert SEO specialists develop tailored campaigns that account for the unique competitive dynamics of your specific industry.",
+       "illustration": "logo3.png"
+    },
+    {
+        "id": 6,
+        "icon": "22.png",
+        "subTitle": "Dedicated Team",
+        "title": "In-House Experts",
+        "text": "Your project is handled by our dedicated team of in-house SEO experts in Pune, providing direct communication and unparalleled accountability.",
+        "illustration": "logo3.png"
+    },
+    {
+        "id": 7,
+       "icon": "23.png",
+        "subTitle": "Clear Explanations",
+        "title": "Transparent Communication",
+        "text": "We provide clear, jargon-free explanations and keep you informed every step of the way with direct access to your campaign performance.",
+       "illustration": "logo3.png"
+    }
+]

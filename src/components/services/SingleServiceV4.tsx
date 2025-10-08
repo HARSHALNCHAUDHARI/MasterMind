@@ -16,7 +16,7 @@ const SingleServiceV4 = ({ service }: { service: DataType }) => {
         <>
             <div className="cteative-service-item">
                 <div className="top">
-                    <h4><Link to={`/service-details/${id}`}>{titleFirst} <strong>{titleLast}</strong></Link></h4>
+                    <h4>{titleFirst} {titleLast}</h4>
                     <img src={`/assets/img/icon/${icon}`} alt="Icon" width={200} height={200} />
                 </div>
                 <p>{text}</p>

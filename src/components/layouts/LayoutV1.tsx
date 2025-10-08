@@ -1,6 +1,5 @@
-import FooterV4 from "../footer/FooterV4";
-import HeaderV7 from "../header/HeaderV7";
-
+import FooterV3 from "../../components/footer/FooterV3";
+import HeaderV2 from "../../components/header/HeaderV2";
 interface LayoutProps {
     children?: React.ReactNode;
 }
@@ -9,9 +8,9 @@ const LayoutV1 = ({ children }: LayoutProps) => {
     return (
         <>
             <div className="smooth-scroll-container">
-                <HeaderV7 />
+                <HeaderV2 />
                 {children}
-                <FooterV4 sectionClass='bg-gray' />
+                <FooterV3  />
             </div>
         </>
     );

@@ -1,30 +1,31 @@
 [
     {
         "id": 1,
-        "title": "Research",
+        "title": "AI-Powered Campaigns",
         "thumb": "5.png",
         "thumbLight": "27.png",
-        "text": "Remarkably on estimating. Side in so life past. Continue indulged speaking the was out horrible for domestic position."
+        "text": "Since 2024, we’ve been running client campaigns with the power of artificial intelligence at the core. From ad targeting to real-time optimization, AI is handling everything with precision and efficiency. "
     },
     {
         "id": 2,
-        "title": "Concept",
+        "title": "ROI-First Approach",
         "thumb": "6.png",
         "thumbLight": "28.png",
-        "text": "Terminators on estimating. Side in so life past. Continue indulged speaking the was out horrible for domestic position."
+        "text": "Every strategy is designed to deliver measurable returns. No vanity metrics—just business results that impact your bottom line."
     },
+
     {
         "id": 3,
-        "title": "Implement",
+        "title": "Creative + Tech Synergy",
         "thumb": "7.png",
         "thumbLight": "29.png",
-        "text": "Remarkably on estimating. Side in so life past. Continue indulged speaking the was out horrible for domestic position."
+        "text": "We blend storytelling with cutting-edge technology, ensuring your campaigns are not only data-driven but also emotionally engaging."
     },
     {
         "id": 4,
-        "title": "Handover",
+        "title": "End-to-End Solutions",
         "thumb": "8.png",
         "thumbLight": "30.png",
-        "text": "Trensination on estimating. Side in so life past. Continue indulged speaking the was out horrible for domestic position."
+        "text": "From website design to SEO, PPC, social media, branding, and beyond—we handle everything under one roof. Our holistic approach ensures consistency, efficiency, and seamless growth for your business."
     }
 ]

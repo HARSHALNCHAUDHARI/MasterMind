@@ -1,12 +1,11 @@
-import thumb4 from '/assets/img/thumb/4.jpg';
-import CountUp from 'react-countup';
+import thumb6 from "/assets/img/servicepage/service1hero.png";
+import shape1 from "/assets/img/shape/1.png";
+import SplitText from "../animation/SplitText.jsx"
 
 const BannerV10 = () => {
-
     return (
         <>
             <div className="banner-style-ten-area shadow dark-hard">
-
                 {/* Background Video  */}
                 <video loop muted autoPlay>
                     <source src="/assets/video/abstract.mp4" type="video/mp4" />
@@ -14,27 +13,38 @@ const BannerV10 = () => {
 
                 <div className="light-banner-active bg-gray bg-cover" style={{ backgroundImage: 'url(/assets/img/shape/7.jpg)' }} />
 
-
                 <div className="container">
-                    <div className="row align-center">
-                        <div className="col-xl-8 col-lg-7 pl-60 pl-md-15 pl-xs-15 order-lg-last">
-                            <div className="banner-ten-content">
-                                <h2>Transforming ideas into <strong>Digital</strong> <b>realities</b></h2>
-                                <p>
-                                    Providing innovative solutions in branding, marketing, design, and advertising. These agencies often collaborate with clients to develop unique campaigns, visual identities, and digital strategies that resonate with target audiences. Services may include graphic design, content creation, social media management.
-                                </p>
+                    <div className="row align-center justify-content-center">
+                        <div className="col-lg-7 col-12">
+                            <div className="banner-two-content banner-center-content">
+                                <div className="mobile-heading-center">
+                                    <h2 className="item-title">Custom Website<strong>Design & Development</strong></h2>
+                                    <h2 className="item-title">Company in Pune</h2>
+                                </div>
+                                
+                                {/* Show on Desktop, Show on Mobile with different styling */}
+                                <div className="d-flex d-none d-lg-block">
+                                    <p className="split-text">
+                                        <SplitText
+                                            delay={5}
+                                            animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+                                            animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+                                            easing="easeOutCubic"
+                                            threshold={0.2}
+                                            rootMargin="-50px"
+                                        >
+                                            Mastermind is a leading website design & development company in Pune, crafting high-performance, SEO-friendly websites that look great and work flawlessly across all devices. Whether you're a startup or an established business, we create digital solutions tailored to your brand and growth objectives.
+                                        </SplitText>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        <div className="col-xl-4 col-lg-5">
-                            <div className="banner-style-ten-left-info">
-                                <img src={thumb4} alt="Image Not Found" />
-                                <div className="fun-fact-style-two">
-                                    <div className="counter">
-                                        <div className="timer"><CountUp end={28} enableScrollSpy /></div>
-                                        <div className="operator">K</div>
-                                    </div>
-                                    <span className="medium">Completed Projects</span>
-                                </div>
+                        
+                        {/* Hide image on mobile screens */}
+                        <div className="col-lg-4 offset-lg-1 d-none d-lg-block">
+                            <div className="banner-two-thumb">
+                                <img src={thumb6} alt="Image Not Found" />
+                                <img className="shape-image" src={shape1} alt="Image Not Found" />
                             </div>
                         </div>
                     </div>

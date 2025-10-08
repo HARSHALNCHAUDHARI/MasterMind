@@ -8,7 +8,7 @@ import SplitText from "../animation/SplitText.jsx"
 const ServicesV4 = () => {
     return (
         <>
-            <div className="services-style-four-area default-padding-bottom overflow-hidden blurry-shape-left">
+            <div className="services-style-four-area default-padding-bottom overflow-hidden blurry-shape-left" style={{marginTop:"100px"}}>
                 <div className="shape-left-top">
                     <img src={shape10} alt="Image Not Found" />
                 </div>
@@ -16,7 +16,7 @@ const ServicesV4 = () => {
                     <div className="row">
                         <div className="col-lg-6">
                             <div className="site-heading">
-                                <h4 className="sub-title">Services we offer</h4>
+                                <h4 className="sub-title">Cutting-Edge Tools & Frameworks</h4>
                                 <h2 className="title split-text">
                                     <SplitText
                                         delay={40}
@@ -26,7 +26,7 @@ const ServicesV4 = () => {
                                         threshold={0.2}
                                         rootMargin="-50px"
                                     >
-                                        Turn Information Into Actionable Insights
+                                        Technologies We Use for Modern Website Development
                                     </SplitText>
                                 </h2>
                             </div>

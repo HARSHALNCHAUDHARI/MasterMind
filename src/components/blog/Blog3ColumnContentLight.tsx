@@ -32,7 +32,7 @@ const Blog3ColumnContentLight = ({ sectionClass }: DataType) => {
         setCurrentPage(selectedPage);
 
         // Update the URL dynamically
-        navigate(`/blog-3-column-light?page=${selectedPage}`);
+        navigate(`/blogs-light?page=${selectedPage}`);
 
         setTimeout(() => {
             window.scrollTo({ top: 0, behavior: 'smooth' });

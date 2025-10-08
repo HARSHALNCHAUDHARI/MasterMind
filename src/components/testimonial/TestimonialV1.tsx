@@ -1,20 +1,40 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Keyboard, Navigation } from 'swiper/modules';
+import { useState } from 'react';
 import TestimonialV1Data from '../../assets/jsonData/testimonial/TestimonialV1Data.json';
 import SingleTestimonialV1 from './SingleTestimonialV1';
-import shape3 from "/assets/img/shape/3.png";
+
 
 const TestimonialV1 = () => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [isTransitioning, setIsTransitioning] = useState(false);
+
+
+    const handleSlideChange = (swiper: any) => {
+        setIsTransitioning(true);
+        setTimeout(() => {
+            setCurrentSlide(swiper.realIndex);
+            setIsTransitioning(false);
+        }, 150); // Half of the transition duration
+    };
+
+
     return (
         <>
-            <div className="testimonial-style-one-area default-padding">
+            <div id="testimonials" className="testimonial-style-one-area default-padding">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-5">
                             <div className="testimonial-one-quote">
                                 <h4 className="sub-title">Testimonials</h4>
                                 <div className="testimonial-quote">
-                                    <img src={shape3} alt="Image Not Found" />
+                                    <div className={`testimonial-image-container ${isTransitioning ? 'transitioning' : ''}`}>
+                                        <img 
+                                            src={`/assets/img/testimonials/${TestimonialV1Data[currentSlide]?.thumb}`} 
+                                            alt={TestimonialV1Data[currentSlide]?.name || "Testimonial"} 
+                                            className="testimonial-person-image"
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -33,6 +53,7 @@ const TestimonialV1 = () => {
                                     prevEl: ".swiper-button-prev",
                                 }}
                                 modules={[Navigation, Keyboard]}
+                                onSlideChange={handleSlideChange}
                             >
                                 <div className="swiper-wrapper">
                                     {TestimonialV1Data.map(testimonial =>
@@ -41,6 +62,7 @@ const TestimonialV1 = () => {
                                         </SwiperSlide>
                                     )}
                                 </div>
+
 
                                 {/* Add Arrows */}
                                 <div className="testimonial-one-navigation">
@@ -52,9 +74,9 @@ const TestimonialV1 = () => {
                     </div>
                 </div>
             </div>
-
         </>
     );
 };
+
 
 export default TestimonialV1;
