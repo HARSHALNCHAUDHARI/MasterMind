@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import handleSmoothScroll from '../utilities/handleSmoothScroll';
-import Blogv2Data from '../../assets/jsonData/blog/Blogv2Data.json';
+import Blogv2Data from '../../assets/jsonData/blog/BloV2Data.json';
 
 const TagsWidget = () => {
     // Extract unique tags from published blog posts

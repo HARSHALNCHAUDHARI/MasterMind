@@ -1,6 +1,6 @@
 // BlogV2.tsx
 import { Link } from 'react-router-dom';
-import Blogv2Data from '../../assets/jsonData/blog/Blogv2Data.json'; // Fixed casing
+import Blogv2Data from '../../assets/jsonData/blog/BlogV2Data.json'; // Fixed casing
 import SingleBlogV2 from './SingleBlogV2';
 import SplitText from '../animation/SplitText';
 
