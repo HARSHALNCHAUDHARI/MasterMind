@@ -12,3 +12,4 @@ export default defineConfig({
     extensions: [".js", ".jsx", ".ts", ".tsx"], // Ensure JSX is recognized
   },
 })
+

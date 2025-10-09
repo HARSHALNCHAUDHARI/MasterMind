@@ -4,14 +4,14 @@ import { useRef, useEffect } from "react";
 interface DataType {
     id?: number;
     thumb?: string;
-    date?: string;
+    
     titleFirst?: string;
     titleLast?: string;
     description?: string;
 }
 
 const SinglePortfolioV3 = ({ portfolio, darkMode = false }: { portfolio: DataType, darkMode?: boolean }) => {
-    const { id, thumb, date, titleFirst, titleLast, description } = portfolio;
+    const { id, thumb, titleFirst, titleLast, description } = portfolio;
     const cardRef = useRef<HTMLDivElement>(null);
     const blobRef = useRef<HTMLDivElement>(null);
 
