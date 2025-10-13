@@ -4,7 +4,6 @@ import Breadcrumb from '../../components/breadcrumb/Breadcrumb';
 import BlogSingleWithSidebarContent from '../../components/blog/BlogSingleWithSidebarContent';
 import DarkClass from '../../components/classes/DarkClass';
 import { Helmet } from 'react-helmet-async';
-import ThemeDark from '../../components/switcher/ThemeDark';
 import BlogV2Data from '../../assets/jsonData/blog/BlogV2Data.json';
 
 const BlogWithSidebarPage = () => {
@@ -23,7 +22,6 @@ const BlogWithSidebarPage = () => {
                     <p>The blog post you're looking for doesn't exist.</p>
                 </div>
                 <DarkClass />
-                <ThemeDark />
             </LayoutV1>
         );
     }
@@ -43,7 +41,6 @@ const BlogWithSidebarPage = () => {
                     sectionClass="default-padding-bottom" 
                 />
                 <DarkClass />
-                <ThemeDark />
             </LayoutV1>
         </>
     );

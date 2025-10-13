@@ -1,4 +1,4 @@
-import BlogData from '../../assets/jsonData/blog/BlogData.json';
+import BlogV2Data from "../../assets/jsonData/blog/BlogV2Data.json";
 import SingleRecentPostLight from './SingleRecentPostLight';
 
 const RecentPostsWidgetLight = () => {
@@ -7,7 +7,7 @@ const RecentPostsWidgetLight = () => {
             <div className="sidebar-item recent-post">
                 <h4 className="title">Recent Post</h4>
                 <ul>
-                    {BlogData.slice(0, 3).map(blog =>
+                    {BlogV2Data.slice(0, 3).map(blog =>
                         <SingleRecentPostLight blog={blog} key={blog.id} />
                     )}
                 </ul>

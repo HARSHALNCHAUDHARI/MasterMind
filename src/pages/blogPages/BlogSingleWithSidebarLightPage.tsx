@@ -3,7 +3,6 @@ import Breadcrumb from '../../components/breadcrumb/Breadcrumb';
 import { useParams } from 'react-router-dom';
 import BlogV3Data from "../../../src/assets/jsonData/blog/BlogV3Data.json"
 import { Helmet } from 'react-helmet-async';
-import ThemeLight from '../../components/switcher/ThemeLight';
 import BlogSingleWithSidebarContent from '../../components/blog/BlogSingleWithSidebarContent';
 
 const BlogSingleWithSidebarLightPage = () => {
@@ -20,7 +19,6 @@ const BlogSingleWithSidebarLightPage = () => {
             <LayoutV1>
                 <Breadcrumb title='Blog Single' breadCrumb='blogs-light' />
                 {data && <BlogSingleWithSidebarContent sectionClass='default-padding-bottom' blogInfo={data} totalBlogs={BlogV3Data.length} />}
-                <ThemeLight />
             </LayoutV1>
         </>
     );

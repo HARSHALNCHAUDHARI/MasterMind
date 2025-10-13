@@ -764,6 +764,22 @@ p {
 	margin-bottom: 50px;
 }
 
+.title3{
+    font-weight: 600;
+    font-size: 48px !important;
+    margin-top: -15px;
+    max-width: 650px;
+    line-height: 1.2;
+}
+
+.title4 {
+    font-weight: 600;
+    font-size: 60px !important;
+    margin-top: -15px;
+}
+
+
+
 
 @media (max-width: 767px) {
 	.title {

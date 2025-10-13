@@ -7,14 +7,14 @@ import HeaderV2 from "../../components/header/HeaderV2";
 import ServiceBanner2 from "../../components/banner/ServiceBanner2";
 import BrandV2 from "../../components/brand/BrandV2"; 
 import PartnerV2 from "../../components/about/serviceabout2"
-import ServicesV6 from "../../components/services/services2file";
+import Services2 from "../../components/services/services2file";
 import ServicesV2 from "../../components/services/whychooseus"; //why choose us
-import ServicesV4 from "../../components/services/ServicesV4";  //Technologies we use
+// import ServicesV4 from "../../components/services/ServicesV4";  //Technologies we use
 import ServiceProcess2 from "../../components/services/service2process";
-import BannerV3 from "../../components/banner/BannerV3"; //webiste carousel
+// import BannerV3 from "../../components/banner/BannerV3"; //webiste carousel
 import TestimonialV1 from "../../components/testimonial/TestimonialV1";
 import PriceV2 from "../../components/price/servicespricing";
-import QuickContact from "../../components/contact/QuickContact";
+import QuickContact2 from "../../components/contact/Quick Contact2";
 import FaqV2 from "../../components/faq/Faqv2";
 import FooterV3 from "../../components/footer/FooterV3";
 import DarkClass from "../../components/classes/DarkClass";
@@ -85,14 +85,14 @@ const SeoAgencyInPune = () => {
                 <ServiceBanner2 />
                 <BrandV2 />
                 <PartnerV2 />
-                <ServicesV6 />
+                <Services2 />
                 <ServicesV2 />{/* why choose us */}
-                <ServicesV4 />{/* Technologies we use */}
+                {/* <ServicesV4 />Technologies we use */}
                 <ServiceProcess2/>
-                <BannerV3 /> {/* Website Carousel */}
+                {/* <BannerV3 /> Website Carousel */}
                 <TestimonialV1 />
                 <PriceV2 />
-                <QuickContact title='Need' titleBold='Help?' />
+                <QuickContact2 title='Need' titleBold='Help?' />
                 <FaqV2  />
                 <CursorEffect />
                 <FooterV3 />

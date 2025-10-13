@@ -14,7 +14,7 @@ interface DataType {
 }
 
 const SinglePriceV2 = ({ plan }: { plan: DataType }) => {
-    const { id, title, description, features, priceOriginal, priceDiscounted, currency, timeline, hosting, note } = plan;
+    const { id, title,  features, priceOriginal, priceDiscounted, currency, timeline, hosting, note } = plan;
 
     const formatPrice = (price: number) => {
         if (currency === "INR") {
@@ -33,7 +33,6 @@ const SinglePriceV2 = ({ plan }: { plan: DataType }) => {
 
                         {title}
                     </h4>
-                    <span style={{ fontSize: '16px' }}>{description}</span>
                 </div>
                 <ul>
                     {features.map((feature, index) => (

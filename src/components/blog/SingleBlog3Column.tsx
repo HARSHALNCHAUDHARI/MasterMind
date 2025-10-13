@@ -1,6 +1,6 @@
 // SingleBlog3Column.tsx
 import { Link } from "react-router-dom";
-import React from "react";
+
 
 interface AuthorObj {
     name: string;

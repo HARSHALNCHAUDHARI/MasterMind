@@ -97,7 +97,7 @@ const ServicesV2 = ({ sectionClass, hasTitle = true }: DataType) => {
                                         threshold={0.2}
                                         rootMargin="-50px"
                                     >
-                                    Why Choose Us As Your Web Development Company in Pune
+                                    Why Choose Us as Your SEO Company in Pune
                                     </SplitText>
                                 </h2>
                             </div>

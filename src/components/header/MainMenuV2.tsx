@@ -130,11 +130,20 @@ const MainMenuV2 = ({ closeInfoBar }: DataType) => {
         )}
       </li>
 
-      <li>
+      {/* <li>
         <a href="#whychooseus" onClick={(e) => handleSmoothScroll(e, "whychooseus")}>
           Why Choose Us
         </a>
+      </li> */}
+      <li>
+            <Link
+      to="/jobopening"
+      onClick={closeInfoBar}
+    >
+      Job Opening
+    </Link>
       </li>
+
       <li>
         <a href="#ourportfolio" onClick={(e) => handleSmoothScroll(e, "ourportfolio")}>
           Our Portfolio

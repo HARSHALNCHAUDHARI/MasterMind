@@ -2,6 +2,7 @@ import PriceV2Data from "../../assets/jsonData/price/PriceV2Data.json"
 import SinglePriceV2 from "./SinglePriceV2.js";
 import SplitText from "../animation/SplitText.jsx"
 
+
 const PriceV2 = () => {
     return (
         <>
@@ -20,9 +21,11 @@ const PriceV2 = () => {
                                         threshold={0.2}
                                         rootMargin="-50px"
                                     >
-                                       Website Design & Development Packages
+                                      SEO Services & Digital Marketing Packages
                                     </SplitText>
                                 </h2>
+
+
                             </div>
                         </div>
                     </div>
@@ -42,5 +45,6 @@ const PriceV2 = () => {
         </>
     );
 };
+
 
 export default PriceV2;

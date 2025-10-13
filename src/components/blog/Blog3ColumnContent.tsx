@@ -49,7 +49,7 @@ const Blog3ColumnContent = ({ sectionClass }: DataType) => {
             <div className="container">
                 <div className="row">
                     {currentBlogData.map((blog: any) => (
-                        <div className="col-lg-4 col-md-6 mb-50" key={blog.id}>
+                        <div className="col-lg-4 col-md-6 mb-50" key={blog.slug}>
                             <SingleBlog3Column blog={blog} />
                         </div>
                     ))}

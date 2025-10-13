@@ -5,11 +5,13 @@ import Home9 from "./pages/homePages/Home9";
 // Home Light
 import Home9Light from "./pages/homePages/Home9Light";
 
+//Job Opening Pages
+import CareersPageDark from "./pages/jobopeningpage/jobopening"
+
 // Service Pages
 import WebsiteDevelopmentCompanyInPune from "./pages/servicesPages/website-development-company-in-pune";
 import SeoAgencyInPune from "./pages/servicesPages/seo-agency-in-pune";
 
-// Blog Pages - Add @ts-ignore to suppress TypeScript errors
 // Blog Pages
 import BlogStandardPage from "./pages/blogPages/BlogStandardPage";
 import BlogWithSidebarPage from "./pages/blogPages/BlogWithSidebarPage";
@@ -23,16 +25,16 @@ import BlogStandardLightPage from "./pages/blogPages/BlogStandardLightPage";
 import BlogWithSidebarLightPage from "./pages/blogPages/BlogWithSidebarLightPage";
 import Blog2ColumnLightPage from "./pages/blogPages/Blog2ColumnLightPage";
 import Blog3ColumnLightPage from "./pages/blogPages/Blog3ColumnLightPage";
-import BlogSingleLightPage from "./pages/blogPages/BlogSingleLightPage";
-import BlogSingleWithSidebarLightPage from "./pages/blogPages/BlogSingleWithSidebarLightPage";
 
 const Routers = () => {
     return (
         <>
             <Routes>
-                {/* Fix: Only one home route */}
                 <Route path='/' element={<Home9 />}></Route>
                 <Route path='/home-light' element={<Home9Light />}></Route>
+
+                {/* Job Opening Pages */}
+                <Route path='/jobopening' element={<CareersPageDark />}></Route>
 
                 {/* Service Pages */}
                 <Route path='/services/website-development-company-in-pune' element={<WebsiteDevelopmentCompanyInPune />}></Route>
@@ -47,7 +49,7 @@ const Routers = () => {
                 <Route path='/blog-2-column?:page?' element={<Blog2ColumnPage />}></Route>
                 <Route path='/blogs' element={<Blogs />}></Route>
                 <Route path='/blogs?:page?' element={<Blogs />}></Route>
-                <Route path='/blog-single/:id' element={<BlogSinglePage />}></Route>
+                <Route path='/blog-single/:slug' element={<BlogSinglePage />}></Route>
                 <Route path='/blogs/:slug' element={<BlogSingleWithSidebarPage />}></Route>
 
                 {/* Blog Light */}
@@ -59,8 +61,6 @@ const Routers = () => {
                 <Route path='/blog-2-column-light?:page?' element={<Blog2ColumnPage />}></Route>
                 <Route path='/blogs-light' element={<Blog3ColumnLightPage />}></Route>
                 <Route path='/blogs-light?:page?' element={<Blogs />}></Route>
-                <Route path='/blog-single-light/:id' element={<BlogSingleLightPage />}></Route>
-                <Route path='/blogs-light/:slug' element={<BlogSingleWithSidebarLightPage />}></Route>
             </Routes>
         </>
     );

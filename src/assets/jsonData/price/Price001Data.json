@@ -1,0 +1,89 @@
+{
+    "plans": [
+        {
+            "id": 1,
+            "title": "The Starter Kit",
+            "icon": "🚀",
+            "bestFor": "New businesses, personal portfolios, and informational sites.",
+            "features": [
+                "Custom 1-5 Page Website",
+                "Mobile-First Responsive Design",
+                "Social Media Integration",
+                "Search Console & Analytics Integration",
+                "Basic On-Page SEO Setup",
+                "Contact Form Integration",
+                "Fast Loading Speed Optimization"
+            ],
+            "notIncluded": [
+                "Google Tag Manager (GTM)",
+                "Blog Setup",
+                "Analytics Dashboard",
+                "Enhanced Security Features",
+                "Advanced Functionality",
+                "Ongoing Support",
+                "Web Hosting"
+            ],
+            "priceOriginal": null,
+            "priceDiscounted": 25000,
+            "currency": "INR",
+            "timeline": "1-2 weeks",
+            "hosting": "Not included"
+        },
+        {
+            "id": 2,
+            "title": "The Business Builder",
+            "icon": "📈",
+            "bestFor": "Growing businesses, service-based companies, and interactive websites.",
+            "features": [
+                "Custom 6-15 Page Website",
+                "Mobile-First Responsive Design",
+                "Social Media Integration",
+                "Search Console & Analytics Integration",
+                "Google Tag Manager (GTM) Setup",
+                "Blog Setup & Advanced On-Page SEO",
+                "Analytics Dashboard Integration",
+                "Enhanced Security Features",
+                "Email Marketing Integration",
+                "Ongoing Support (30 Days Post-Launch)"
+            ],
+            "notIncluded": [
+                "Advanced Functionality (e-commerce, booking systems)",
+                "Dedicated Project Manager"
+            ],
+            "priceOriginal": null,
+            "priceDiscounted": 50000,
+            "currency": "INR",
+            "timeline": "3-5 weeks",
+            "hosting": "Free for 1 Year"
+        },
+        {
+            "id": 3,
+            "title": "The Enterprise Pro",
+            "icon": "✨",
+            "bestFor": "E-commerce stores, large enterprises, and businesses with complex needs.",
+            "features": [
+                "Custom Website (Up to 50 Pages)",
+                "Mobile-First Responsive Design",
+                "Social Media Integration",
+                "Search Console & Analytics Integration",
+                "Google Tag Manager (GTM) Advanced Setup",
+                "Blog Setup & Advanced On-Page SEO",
+                "Analytics Dashboard Integration",
+                "Advanced Security & Performance Optimization",
+                "Advanced Functionality (e-commerce, booking systems, membership portals, custom applications)",
+                "Dedicated Project Manager",
+                "Priority Ongoing Support",
+                "Content Management System (CMS)",
+                "Custom API Integrations",
+                "Advanced Animation & Interactions"
+            ],
+            "notIncluded": [],
+            "priceOriginal": null,
+            "priceDiscounted": 100000,
+            "currency": "INR",
+            "timeline": "8+ weeks",
+            "hosting": "Free for 1 Year",
+            "note": "Starting from - Custom quote for enterprise requirements"
+        }
+    ]
+}

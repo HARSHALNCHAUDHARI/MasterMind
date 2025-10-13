@@ -5,7 +5,6 @@ import BlogCommentForm from './BlogCommentForm';
 import handleSmoothScroll from '../utilities/handleSmoothScroll';
 import SocialShareV3 from '../social/SocialShareV3';
 import BlogV3Data from "../../assets/jsonData/blog/BlogV3Data.json";
-import SearchWidget from '../widgets/SearchWidget';
 import CategoryWidget from '../widgets/CategoryWidget';
 import GalleryWidget from '../widgets/GalleryWidget';
 import ArchiveWidget from '../widgets/ArchiveWidget';
@@ -159,7 +158,6 @@ const BlogSingleWithSidebarContentLight = ({ blogInfo, totalBlogs, sectionClass 
 
                             <div className="sidebar col-xl-4 col-lg-5 col-md-12 mt-md-50 mt-xs-50">
                                 <aside>
-                                    <SearchWidget />
                                     <RecentPostsWidgetLight />
                                     <CategoryWidget />
                                     <GalleryWidget />

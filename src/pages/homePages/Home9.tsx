@@ -6,6 +6,7 @@ import BrandV1 from "../../components/brand/BrandV1";
 import FooterV3 from "../../components/footer/FooterV3";
 import HeaderV2 from "../../components/header/HeaderV2";
 import MultiSection from "../../components/multi/MultiSection";
+import CaseStudies from '../../components/casestudies/casestudies';
 import TestimonialV1 from "../../components/testimonial/TestimonialV1";
 import DarkClass from "../../components/classes/DarkClass";
 import ThemeDark from "../../components/switcher/ThemeDark";
@@ -171,6 +172,7 @@ const Home9 = () => {
                 <PortfolioV3 hasTitle={true} sectionClass='default-padding' />
                 <MultiSection />
                 <BannerV3 />
+                <CaseStudies />
                 <TestimonialV1 />
                 <BlogV2 />
                 <ContactV1 />

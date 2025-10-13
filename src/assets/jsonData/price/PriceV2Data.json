@@ -3,7 +3,6 @@
         {
             "id": 1,
             "title": "The Local Launch",
-            "description": "Best for new local businesses, startups, and single-location service providers.",
             "features": [
                 "Primary Goal: Local Map Pack & Foundational Visibility",
                 "Keywords Targeted (Max): Up to 15 High-Intent Local Keywords",
@@ -26,7 +25,6 @@
         {
             "id": 2,
             "title": "The Growth Accelerator",
-            "description": "Best for growing SMEs, competitive local markets, and businesses targeting city-wide relevance.",
             "features": [
                 "Primary Goal: High Organic Traffic & Lead Generation",
                 "Keywords Targeted (Max): Up to 40 Transactional & Informational Keywords",
@@ -49,7 +47,6 @@
         {
             "id": 3,
             "title": "The Market Dominator",
-            "description": "Best for enterprises, E-commerce stores, and high-growth companies seeking national/global reach.",
             "features": [
                 "Primary Goal: Maximize Conversions & Market Share",
                 "Keywords Targeted (Max): 60+ Keywords Across All Funnel Stages",

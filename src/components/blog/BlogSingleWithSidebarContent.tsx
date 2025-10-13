@@ -1,13 +1,12 @@
-// BlogSingleWithSidebarContent.tsx - Updated with smaller image
+// BlogSingleWithSidebarContent.tsx - Force text colors with !important
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Helmet } from 'react-helmet-async';
 import team1Thumb from "/assets/img/team/9.jpg"
 
 import handleSmoothScroll from '../utilities/handleSmoothScroll';
 import SocialShareV3 from '../social/SocialShareV3';
 import BlogV2Data from "../../assets/jsonData/blog/BlogV2Data.json";
-import SearchWidget from '../widgets/SearchWidget';
 import RecentPostsWidget from '../widgets/RecentPostsWidget';
 import CategoryWidget from '../widgets/CategoryWidget';
 import FollowWidget from '../widgets/FollowWidget';
@@ -22,6 +21,7 @@ interface AuthorObj {
 }
 
 interface DataType {
+    slug?: string;
     id?: number;
     title?: string;
     content?: string;
@@ -60,83 +60,54 @@ interface BlogSingleProps {
     sectionClass?: string;
 }
 
-// Enhanced FAQ Component with forced text colors
+// Enhanced FAQ Component with PROPER light/dark theme colors
 const FAQSection: React.FC<{ faq: Array<{ question: string; answer: string }> }> = ({ faq }) => {
     const [expandedFAQ, setExpandedFAQ] = React.useState<number | null>(null);
+    
+    // Detect if dark mode is active
+    const [isDarkMode, setIsDarkMode] = React.useState(false);
+
+    React.useEffect(() => {
+        // Check for dark mode on mount
+        const checkDarkMode = () => {
+            const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            const hasDarkClass = document.documentElement.classList.contains('dark') || 
+                                 document.body.classList.contains('dark');
+            setIsDarkMode(darkModeQuery.matches || hasDarkClass);
+        };
+
+        checkDarkMode();
+
+        // Listen for theme changes
+        const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        darkModeQuery.addEventListener('change', checkDarkMode);
+
+        // Listen for class changes on body/html
+        const observer = new MutationObserver(checkDarkMode);
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+        observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+        return () => {
+            darkModeQuery.removeEventListener('change', checkDarkMode);
+            observer.disconnect();
+        };
+    }, []);
+
+    // Dynamic colors based on theme
+    const colors = {
+        textPrimary: isDarkMode ? '#ffffff' : '#222222',
+        textSecondary: isDarkMode ? 'rgba(255, 255, 255, 0.9)' : '#444444',
+        excerptBg: isDarkMode ? 'rgba(255, 107, 107, 0.15)' : 'rgba(255, 107, 107, 0.1)',
+        faqBg: isDarkMode ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.03)',
+        faqBorder: isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.08)',
+        faqShadow: isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.08)'
+    };
 
     return (
         <>
-            {/* Global CSS injection for theme colors */}
+            {/* Global CSS injection for FORCING colors */}
             <style dangerouslySetInnerHTML={{
                 __html: `
-                    /* Force light theme colors - BLACK text */
-                    :root {
-                        --text-color-primary: #222222;
-                        --text-color-secondary: #444444;
-                        --text-color-muted: #555555;
-                        --bg-excerpt: rgba(255, 107, 107, 0.1);
-                        --faq-bg: rgba(0, 0, 0, 0.03);
-                        --faq-border: rgba(0, 0, 0, 0.08);
-                        --faq-shadow: rgba(0, 0, 0, 0.08);
-                    }
-
-                    /* Dark theme detection and override */
-                    @media (prefers-color-scheme: dark) {
-                        :root {
-                            --text-color-primary: #ffffff;
-                            --text-color-secondary: rgba(255, 255, 255, 0.9);
-                            --text-color-muted: rgba(255, 255, 255, 0.8);
-                            --bg-excerpt: rgba(255, 107, 107, 0.15);
-                            --faq-bg: rgba(255, 255, 255, 0.08);
-                            --faq-border: rgba(255, 255, 255, 0.15);
-                            --faq-shadow: rgba(255, 255, 255, 0.1);
-                        }
-                    }
-
-                    /* Class-based dark mode detection */
-                    .dark:root,
-                    body.dark:root,
-                    html.dark:root {
-                        --text-color-primary: #ffffff;
-                        --text-color-secondary: rgba(255, 255, 255, 0.9);
-                        --text-color-muted: rgba(255, 255, 255, 0.8);
-                        --bg-excerpt: rgba(255, 107, 107, 0.15);
-                        --faq-bg: rgba(255, 255, 255, 0.08);
-                        --faq-border: rgba(255, 255, 255, 0.15);
-                        --faq-shadow: rgba(255, 255, 255, 0.1);
-                    }
-
-                    /* Apply colors to elements */
-                    .blog-content h1,
-                    .blog-content h2,
-                    .blog-content h3,
-                    .blog-content h4,
-                    .blog-content h5,
-                    .blog-content h6,
-                    .faq-section .faq-title,
-                    .faq-section .faq-question {
-                        color: var(--text-color-primary) !important;
-                    }
-
-                    .blog-content p,
-                    .blog-content li,
-                    .faq-section .faq-description,
-                    .faq-section .faq-answer {
-                        color: var(--text-color-secondary) !important;
-                    }
-
-                    .blog-content .blog-excerpt,
-                    .blog-content .excerpt {
-                        background: var(--bg-excerpt) !important;
-                        color: var(--text-color-secondary) !important;
-                    }
-
-                    .faq-section .faq-item {
-                        background: var(--faq-bg) !important;
-                        border-color: var(--faq-border) !important;
-                        box-shadow: 0 4px 20px var(--faq-shadow) !important;
-                    }
-
                     @keyframes fadeInDown {
                         from {
                             opacity: 0;
@@ -147,9 +118,43 @@ const FAQSection: React.FC<{ faq: Array<{ question: string; answer: string }> }>
                             transform: translateY(0);
                         }
                     }
+                    
+                    /* Force blog content colors based on theme */
+                    .blog-content h1,
+                    .blog-content h2,
+                    .blog-content h3,
+                    .blog-content h4,
+                    .blog-content h5,
+                    .blog-content h6 {
+                        color: ${colors.textPrimary} !important;
+                    }
+                    
+                    .blog-content p,
+                    .blog-content li {
+                        color: ${colors.textSecondary} !important;
+                    }
+                    
+                    .blog-content .blog-excerpt,
+                    .blog-content .excerpt {
+                        background: ${colors.excerptBg} !important;
+                        color: ${colors.textSecondary} !important;
+                    }
+                    
+                    .faq-section .faq-title {
+                        background: linear-gradient(135deg, #ff6b6b 0%, #ffa8a8 50%, #ff8e8e 100%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                    }
+                    
+                    .faq-section .faq-description,
+                    .faq-section .faq-question,
+                    .faq-section .faq-answer {
+                        color: ${colors.textPrimary} !important;
+                    }
                 `
             }} />
-
+        
             <div className="faq-section" style={{ marginTop: '4rem' }}>
                 <div style={{
                     textAlign: 'center',
@@ -158,12 +163,9 @@ const FAQSection: React.FC<{ faq: Array<{ question: string; answer: string }> }>
                     <h2 className="faq-title" style={{
                         fontSize: '2.5rem',
                         fontWeight: 800,
-                        background: 'linear-gradient(135deg, #ff6b6b 0%, #ffa8a8 50%, #ff8e8e 100%)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
                         marginBottom: '1rem'
                     }}>
-                        🤔 Frequently Asked Questions
+                     Frequently Asked Questions
                     </h2>
                     <p className="faq-description" style={{
                         fontSize: '1.1rem',
@@ -189,7 +191,9 @@ const FAQSection: React.FC<{ faq: Array<{ question: string; answer: string }> }>
                                 borderRadius: '16px',
                                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                                 cursor: 'pointer',
-                                border: '1px solid var(--faq-border)'
+                                background: colors.faqBg,
+                                border: `1px solid ${colors.faqBorder}`,
+                                boxShadow: `0 4px 20px ${colors.faqShadow}`
                             }}
                             onClick={() => setExpandedFAQ(expandedFAQ === index ? null : index)}
                         >
@@ -255,6 +259,7 @@ const FAQSection: React.FC<{ faq: Array<{ question: string; answer: string }> }>
                                                 background: 'linear-gradient(135deg, #ff6b6b 0%, #ffa8a8 50%, #ff8e8e 100%)',
                                                 WebkitBackgroundClip: 'text',
                                                 WebkitTextFillColor: 'transparent',
+                                                backgroundClip: 'text',
                                                 marginRight: '0.5rem',
                                                 fontWeight: 700
                                             }}>A:</span>
@@ -272,6 +277,48 @@ const FAQSection: React.FC<{ faq: Array<{ question: string; answer: string }> }>
 };
 
 const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, totalBlogs, sectionClass }) => {
+    // GET SLUG FROM URL USING useParams
+    const { slug: urlSlug } = useParams<{ slug: string }>();
+    
+    // FIND THE BLOG BY SLUG FROM JSON DATA
+    const currentBlog = BlogV2Data.find(blog => blog.slug === urlSlug) as DataType | undefined;
+    
+    // Detect dark mode
+    const [isDarkMode, setIsDarkMode] = React.useState(false);
+
+    React.useEffect(() => {
+        const checkDarkMode = () => {
+            const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            const hasDarkClass = document.documentElement.classList.contains('dark') || 
+                                 document.body.classList.contains('dark');
+            const newDarkMode = darkModeQuery.matches || hasDarkClass;
+            setIsDarkMode(newDarkMode);
+            console.log('🎨 Dark mode detected:', newDarkMode);
+        };
+
+        checkDarkMode();
+
+        const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        darkModeQuery.addEventListener('change', checkDarkMode);
+
+        const observer = new MutationObserver(checkDarkMode);
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+        observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+        return () => {
+            darkModeQuery.removeEventListener('change', checkDarkMode);
+            observer.disconnect();
+        };
+    }, []);
+
+    // Theme colors
+    const textColor = isDarkMode ? '#ffffff' : '#222222';
+    const textSecondary = isDarkMode ? 'rgba(255, 255, 255, 0.9)' : '#444444';
+    const excerptBg = isDarkMode ? 'rgba(255, 107, 107, 0.15)' : 'rgba(255, 107, 107, 0.1)';
+    
+    // Use currentBlog data or fallback to blogInfo prop
+    const blogData = currentBlog || blogInfo;
+    
     const { 
         id, 
         title, 
@@ -279,8 +326,6 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
         fullContent,
         excerpt,
         datePublished, 
-        date, 
-        dateIcon, 
         image,
         thumbFull,
         thumb,
@@ -289,10 +334,13 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
         category,
         tags,
         keywords,
-        url,
+        url
+    } = blogData || {};
 
-        poll
-    } = blogInfo || {};
+    // Access potentially missing properties safely
+    const date = blogData?.date;
+    const dateIcon = blogData?.dateIcon;
+    const poll = blogData?.poll;
 
     // Handle author object
     const authorName = author?.name || 'MasterMind Team';
@@ -300,7 +348,7 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
     const authorCompany = author?.company || 'MasterMind Web Developers';
     const authorBio = author?.bio || 'Experienced digital marketing professional with a proven track record of helping businesses achieve remarkable online growth through strategic web design and development.';
     
-    // Enhanced image path handling for both old and new data structures
+    // Enhanced image path handling
     const getBlogImagePath = () => {
         const imageName = image || thumbFull || thumb;
         
@@ -325,23 +373,11 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
 
     const blogImage = getBlogImagePath();
     const displayDate = datePublished || date || '2025-09-25';
-    const currentBlog = BlogV2Data.find(blog => blog.id === id);
     const currentPoll = poll || currentBlog?.poll;
     const pollOptions = currentPoll?.options.map((option, index) => ({
         id: `option-${index}`,
         text: option
     })) || [];
-
-    // Debug logging for image path
-    React.useEffect(() => {
-        console.log('🖼️ IMAGE DEBUG INFO:');
-        console.log('Blog ID:', id);
-        console.log('image prop:', image);
-        console.log('thumbFull prop:', thumbFull);
-        console.log('thumb prop:', thumb);
-        console.log('Final image path:', blogImage);
-        console.log('Current blog from data:', currentBlog?.title);
-    }, [id, image, thumbFull, thumb, blogImage, currentBlog]);
 
     // Blog-specific content renderer
     const renderBlogContent = () => {
@@ -350,23 +386,10 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
             
             return (
                 <div className="blog-content">
-                    <h1 style={{ 
-                        fontSize: '2.5rem', 
-                        fontWeight: 800, 
-                        marginBottom: '1rem'
-                    }}>
-                        {currentBlog.title}
-                    </h1>
+                    <h1>{currentBlog.title}</h1>
                     
                     {currentBlog.excerpt && (
-                        <div className="blog-excerpt" style={{
-                            padding: '1.5rem',
-                            borderLeft: '4px solid #ff6b6b',
-                            marginBottom: '2rem',
-                            fontStyle: 'italic',
-                            fontSize: '1.1rem',
-                            borderRadius: '8px'
-                        }}>
+                        <div className="blog-excerpt">
                             {currentBlog.excerpt}
                         </div>
                     )}
@@ -376,7 +399,7 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
                         if (paragraph.trim().startsWith('•')) {
                             const bullets = paragraph.split('\n').filter(line => line.trim().startsWith('•'));
                             return (
-                                <ul key={index} style={{ marginBottom: '1rem' }}>
+                                <ul key={index}>
                                     {bullets.map((bullet, bulletIndex) => (
                                         <li key={bulletIndex}>{bullet.replace('•', '').trim()}</li>
                                     ))}
@@ -386,13 +409,7 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
                             const [heading, ...content] = paragraph.split(':');
                             return (
                                 <div key={index}>
-                                    <h2 style={{ 
-                                        fontSize: '2rem', 
-                                        fontWeight: 700, 
-                                        marginBottom: '1rem'
-                                    }}>
-                                        {heading.trim()}
-                                    </h2>
+                                    <h2>{heading.trim()}</h2>
                                     {content.length > 0 && <p>{content.join(':').trim()}</p>}
                                 </div>
                             );
@@ -421,7 +438,7 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
                         if (paragraph.trim().startsWith('•')) {
                             const bullets = paragraph.split('\n').filter(line => line.trim().startsWith('•'));
                             return (
-                                <ul key={actualIndex} style={{ marginBottom: '1rem' }}>
+                                <ul key={actualIndex}>
                                     {bullets.map((bullet, bulletIndex) => (
                                         <li key={bulletIndex}>{bullet.replace('•', '').trim()}</li>
                                     ))}
@@ -431,13 +448,7 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
                             const [heading, ...content] = paragraph.split(':');
                             return (
                                 <div key={actualIndex}>
-                                    <h2 style={{ 
-                                        fontSize: '2rem', 
-                                        fontWeight: 700, 
-                                        marginBottom: '1rem'
-                                    }}>
-                                        {heading.trim()}
-                                    </h2>
+                                    <h2>{heading.trim()}</h2>
                                     {content.length > 0 && <p>{content.join(':').trim()}</p>}
                                 </div>
                             );
@@ -457,24 +468,11 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
         // Fallback for blogs without full content
         return (
             <div className="blog-content">
-                <h1 style={{ 
-                    fontSize: '2.5rem', 
-                    fontWeight: 800, 
-                    marginBottom: '2rem', 
-                    textAlign: 'center'
-                }}>
-                    {title || 'Blog Title'}
-                </h1>
+                <h1>{title || 'Blog Title'}</h1>
 
                 {excerpt && (
-                    <div className="excerpt" style={{ 
-                        padding: '1rem', 
-                        borderLeft: '4px solid #ff6b6b',
-                        marginBottom: '2rem',
-                        fontStyle: 'italic',
-                        borderRadius: '8px'
-                    }}>
-                        <p style={{ margin: 0, fontSize: '1.1rem' }}>{excerpt}</p>
+                    <div className="excerpt">
+                        <p>{excerpt}</p>
                     </div>
                 )}
                 
@@ -494,22 +492,89 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
         );
     };
 
-    // Blogs Navigation 
-    const currentId = id ? parseInt(id.toString(), 10) : 1;
+    // Blogs Navigation
+    const currentIndex = BlogV2Data.findIndex(blog => blog.slug === urlSlug);
     const totalBlogsCount = totalBlogs || BlogV2Data.length;
-    const previousId = currentId === 1 ? totalBlogsCount : currentId - 1;
-    const nextId = currentId === totalBlogsCount ? 1 : currentId + 1;
-    const previousBlog = BlogV2Data.find((blog) => blog.id === previousId);
-    const nextBlog = BlogV2Data.find((blog) => blog.id === nextId);
+    
+    const previousIndex = currentIndex === 0 ? totalBlogsCount - 1 : currentIndex - 1;
+    const nextIndex = currentIndex === totalBlogsCount - 1 ? 0 : currentIndex + 1;
+    
+    const previousBlog = BlogV2Data[previousIndex];
+    const nextBlog = BlogV2Data[nextIndex];
+    
     const getFirstTwoWords = (text?: string) => text?.split(' ').slice(0, 2).join(' ') || "No Title";
 
     return (
         <>
+            {/* INJECT GLOBAL CSS WITH !IMPORTANT FOR THEME COLORS */}
+            <style dangerouslySetInnerHTML={{
+                __html: `
+                    /* Force blog content text colors */
+                    .blog-content h1 {
+                        font-size: 2.5rem !important;
+                        font-weight: 800 !important;
+                        margin-bottom: 1rem !important;
+                        color: ${textColor} !important;
+                    }
+                    
+                    .blog-content h2 {
+                        font-size: 2rem !important;
+                        font-weight: 700 !important;
+                        margin-bottom: 1rem !important;
+                        color: ${textColor} !important;
+                    }
+                    
+                    .blog-content h3,
+                    .blog-content h4,
+                    .blog-content h5,
+                    .blog-content h6 {
+                        color: ${textColor} !important;
+                    }
+                    
+                    .blog-content p,
+                    .blog-content li {
+                        color: ${textSecondary} !important;
+                        line-height: 1.8 !important;
+                        margin-bottom: 1rem !important;
+                    }
+                    
+                    .blog-content ul {
+                        margin-bottom: 1rem !important;
+                    }
+                    
+                    .blog-content .blog-excerpt {
+                        padding: 1.5rem !important;
+                        background: ${excerptBg} !important;
+                        border-left: 4px solid #ff6b6b !important;
+                        margin-bottom: 2rem !important;
+                        font-style: italic !important;
+                        font-size: 1.1rem !important;
+                        border-radius: 8px !important;
+                        color: ${textSecondary} !important;
+                    }
+                    
+                    .blog-content .excerpt {
+                        padding: 1rem !important;
+                        background: ${excerptBg} !important;
+                        border-left: 4px solid #ff6b6b !important;
+                        margin-bottom: 2rem !important;
+                        font-style: italic !important;
+                        border-radius: 8px !important;
+                    }
+                    
+                    .blog-content .excerpt p {
+                        margin: 0 !important;
+                        font-size: 1.1rem !important;
+                        color: ${textSecondary} !important;
+                    }
+                `
+            }} />
+            
             {/* SEO Meta Tags */}
             <Helmet>
                 <title>{currentBlog?.seo?.metaTitle || currentBlog?.title || title || 'Blog Post'}</title>
                 <meta name="description" content={currentBlog?.seo?.metaDescription || currentBlog?.excerpt || excerpt || ''} />
-                <link rel="canonical" href={currentBlog?.seo?.canonicalUrl || currentBlog?.url || url || `https://www.mastermindweb.in/blog/post-${id}`} />
+                <link rel="canonical" href={currentBlog?.seo?.canonicalUrl || currentBlog?.url || url || `https://www.mastermindweb.in/blog/${urlSlug}`} />
                 <meta name="keywords" content={currentBlog?.keywords?.join(', ') || keywords?.join(', ') || ''} />
                 
                 <meta property="og:title" content={currentBlog?.title || title || 'Blog Post'} />
@@ -524,7 +589,7 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
                     "@type": "BlogPosting",
                     "mainEntityOfPage": {
                         "@type": "WebPage",
-                        "@id": currentBlog?.url || url || `https://www.mastermindweb.in/blog/post-${id}`
+                        "@id": currentBlog?.url || url || `https://www.mastermindweb.in/blog/${urlSlug}`
                     },
                     "headline": currentBlog?.title || title || 'Blog Post',
                     "description": currentBlog?.excerpt || excerpt || '',
@@ -566,11 +631,10 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
                                             className="thumb"
                                             style={{
                                                 position: 'relative',
-                                                height: '600px', // Reduced from default large size
+                                                height: '600px',
                                                 overflow: 'hidden',
                                                 borderRadius: '16px',
                                                 marginBottom: '2rem',
-
                                             }}
                                         >
                                             <img 
@@ -585,15 +649,11 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
                                                 }}
                                                 onError={(e) => {
                                                     const target = e.target as HTMLImageElement;
-                                                    console.log('❌ Image failed to load:', blogImage);
                                                     if (blogImage.includes('/assets/blog/')) {
                                                         target.src = `/assets/img/blog/${image || thumbFull || thumb || 'placeholder.jpg'}`;
                                                     } else {
                                                         target.src = '/assets/img/blog/placeholder.jpg';
                                                     }
-                                                }}
-                                                onLoad={() => {
-                                                    console.log('✅ Image loaded successfully:', blogImage);
                                                 }}
                                             />
                                         </div>
@@ -654,13 +714,13 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
 
                                 <div className="post-pagi-area">
                                     <div className="post-previous">
-                                        <Link to={`/blogs/${previousId}`}>
+                                        <Link to={`/blogs/${previousBlog?.slug}`}>
                                             <div className="icon"><i className="fas fa-angle-double-left"></i></div>
                                             <div className="nav-title"> Previous Post <h5>{getFirstTwoWords(previousBlog?.title)}</h5></div>
                                         </Link>
                                     </div>
                                     <div className="post-next">
-                                        <Link to={`/blogs/${nextId}`}>
+                                        <Link to={`/blogs/${nextBlog?.slug}`}>
                                             <div className="nav-title">Next Post <h5>{getFirstTwoWords(nextBlog?.title)}</h5></div>
                                             <div className="icon"><i className="fas fa-angle-double-right"></i></div>
                                         </Link>
@@ -670,7 +730,6 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
 
                             <div className="sidebar col-xl-4 col-lg-5 col-md-12 mt-md-50 mt-xs-50">
                                 <aside>
-                                    <SearchWidget />
                                     <RecentPostsWidget />
                                     <CategoryWidget />
                                     <FollowWidget />

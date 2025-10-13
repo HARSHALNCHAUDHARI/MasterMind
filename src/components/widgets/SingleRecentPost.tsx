@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
 interface Blog {
-    id: number;
-    thumb: string;
+    slug: string;
+    image: string;
     title: string;
-    datePublished: string; // Changed from 'date' to 'datePublished'
+    datePublished: string;
     published: boolean;
 }
 
@@ -13,7 +13,7 @@ interface SingleRecentPostProps {
 }
 
 const SingleRecentPost: React.FC<SingleRecentPostProps> = ({ blog }) => {
-    const { id, thumb, title, datePublished } = blog;
+    const { slug, image, title, datePublished } = blog;
 
     const truncateString = (str: string): string => {
         if (str.length <= 47) {
@@ -24,7 +24,6 @@ const SingleRecentPost: React.FC<SingleRecentPostProps> = ({ blog }) => {
 
     const truncatedTitle = truncateString(title);
 
-    // Format the date for display
     const formatDate = (dateString: string): string => {
         const date = new Date(dateString);
         return date.toLocaleDateString('en-US', {
@@ -34,15 +33,45 @@ const SingleRecentPost: React.FC<SingleRecentPostProps> = ({ blog }) => {
         });
     };
 
+    const getBlogImagePath = () => {
+        if (!image) {
+            return '/assets/img/blog/placeholder.jpg';
+        }
+        
+        if (image.startsWith('/')) {
+            return image;
+        }
+        
+        return `/assets/blog/${image}`;
+    };
+
+    const imageSrc = getBlogImagePath();
+
     return (
         <li>
             <div className="thumb">
-                <Link to={`/blogs/${id}`}>
+                <Link to={`/blogs/${slug}`}>
                     <img 
-                        src={`/assets/img/blog/${thumb}`} 
+                        src={imageSrc}
                         width={500} 
                         height={500} 
-                        alt="Blog thumbnail" 
+                        alt={title}
+                        loading="lazy"
+                        onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            const fallbackPaths = [
+                                `/assets/img/blog/${image}`,
+                                `/assets/blog/${image}`,
+                                'https://via.placeholder.com/500x500/1a1a1a/ffffff?text=Blog'
+                            ];
+                            
+                            const currentSrc = target.src;
+                            const nextFallback = fallbackPaths.find(path => !currentSrc.includes(path));
+                            
+                            if (nextFallback) {
+                                target.src = nextFallback;
+                            }
+                        }}
                     />
                 </Link>
             </div>
@@ -50,7 +79,7 @@ const SingleRecentPost: React.FC<SingleRecentPostProps> = ({ blog }) => {
                 <div className="meta-title">
                     <span className="post-date">{formatDate(datePublished)}</span>
                 </div>
-                <Link to={`/blogs/${id}`}>
+                <Link to={`/blogs/${slug}`}>
                     {truncatedTitle}
                 </Link>
             </div>

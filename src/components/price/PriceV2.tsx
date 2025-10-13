@@ -1,4 +1,4 @@
-import PriceV2Data from "../../assets/jsonData/price/PriceV2Data.json"
+import PriceV001Data from "../../assets/jsonData/price/Price001Data.json"
 import SinglePriceV2 from "./SinglePriceV2.js";
 import SplitText from "../animation/SplitText.jsx"
 
@@ -30,7 +30,7 @@ const PriceV2 = () => {
                 <div className="container">
                     <div className="pricing-style-two-items">
                         <div className="row">
-                            {PriceV2Data.plans.map(plan =>
+                            {PriceV001Data.plans.map(plan =>
                                 <div className="col-xl-4 col-lg-6 col-md-6 mb-30" key={plan.id}>
                                     <SinglePriceV2 plan={plan} />
                                 </div>

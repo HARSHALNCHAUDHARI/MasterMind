@@ -36,7 +36,7 @@ const BlogV2 = ({ sectionClass }: { sectionClass?: string }) => {
       <div className="container">
         <div className="row">
           {homePosts.map((blog: any) => (
-            <div className="col-lg-6 col-md-6 mb-30" key={blog.id}>
+            <div className="col-lg-6 col-md-6 mb-30" key={blog.slug}>
               <SingleBlogV2 blog={blog} />
             </div>
           ))}

@@ -2,14 +2,17 @@ import { Link } from "react-router-dom";
 import SplitTextV2 from "../animation/SplitTextV2.jsx"
 import useScrollAnimation from "../../hooks/useScrollAnimation.js";
 
+
 interface DataType {
     sectionClass?: string;
     title?: string;
     titleBold?: string
 }
 
-const QuickContact = ({ sectionClass, title, titleBold }: DataType) => {
+
+const QuickContact2 = ({ sectionClass, title, titleBold }: DataType) => {
     const containerRef = useScrollAnimation();
+
 
     return (
         <>
@@ -18,7 +21,6 @@ const QuickContact = ({ sectionClass, title, titleBold }: DataType) => {
                     <div className="row">
                         <div className="col-xl-8 offset-xl-2">
                             <div className="quick-contact-items text-scroll-animation" ref={containerRef}>
-
                                 <h2 className="split-text">
                                     <SplitTextV2
                                         delay={150}
@@ -29,14 +31,12 @@ const QuickContact = ({ sectionClass, title, titleBold }: DataType) => {
                                         rootMargin="-50px"
                                     >
                                         {title ? title : "Get"} <span>&nbsp;</span> <strong>{titleBold ? titleBold : 'Touch'}</strong>
-
                                     </SplitTextV2>
                                 </h2>
 
                                 <div className="pl-100 pl-xs-0 d-flex align-items-center">
                                     <p className="text">
-                                        Stop losing customers to outdated websites. We create modern, fast-loading sites that captivate visitors, build trust, and convert browsers into buyers. Ready to transform your online presence with a website that works 24/7?
-
+                                        Stop losing leads to your competitors. We're here to turn your website into your top-performing salesperson, delivering consistent organic traffic and a powerful return on investment. Ready to transform your digital presence and hire SEO expert support?
                                     </p>
                                     <div className="btn-large-border text-end">
                                         <Link to="/ContactUsPage"><i className="fas fa-long-arrow-right" /> Get a Quote</Link>
@@ -51,4 +51,5 @@ const QuickContact = ({ sectionClass, title, titleBold }: DataType) => {
     );
 };
 
-export default QuickContact;
+
+export default QuickContact2;

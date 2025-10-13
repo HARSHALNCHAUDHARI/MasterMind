@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom";
 
 interface Blog {
+    slug?: string;  // Make it optional
     id: number;
-    thumb: string;
-    title: string;
     date: string;
+    dateIcon?: string;
+    author?: string;
+    authorIcon?: string;
+    tag?: string;
+    title: string;
+    text?: string;
+    btnText?: string;
+    btnIcon?: string;
+    thumbFull?: string;
+    thumb: string;
+    animationDelay?: string;
 }
 
 interface SingleRecentPostProps {
@@ -12,8 +22,11 @@ interface SingleRecentPostProps {
 }
 
 const SingleRecentPostLight: React.FC<SingleRecentPostProps> = ({ blog }) => {
-    const { id, thumb, title, date } = blog;
-
+    const { thumb, title, date, slug } = blog;
+    
+    // Generate slug from title if not present (same logic as SingleBlogV2)
+    const blogSlug = slug ?? title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+    
     const truncateString = (str: string): string => {
         if (str.length <= 47) {
             return str;
@@ -26,7 +39,7 @@ const SingleRecentPostLight: React.FC<SingleRecentPostProps> = ({ blog }) => {
     return (
         <li>
             <div className="thumb">
-                <Link to={`/blogs-light/${id}`}>
+                <Link to={`/blogs-light/${blogSlug}`}>
                     <img src={`/assets/img/blog/${thumb}`} width={500} height={500} alt="Thumb" />
                 </Link>
             </div>
@@ -34,7 +47,7 @@ const SingleRecentPostLight: React.FC<SingleRecentPostProps> = ({ blog }) => {
                 <div className="meta-title">
                     <span className="post-date">{date}</span>
                 </div>
-                <Link to={`/blogs-light/${id}`}>{truncatedTitle}</Link>
+                <Link to={`/blogs-light/${blogSlug}`}>{truncatedTitle}</Link>
             </div>
         </li>
     );

@@ -1,28 +1,28 @@
 [
     {
         "id": 1,
-        "thumb": "28.jpg",
+        "thumb": "1.jpg",
         "tag": "Marketing",
         "date": "August, 2024",
         "text": "Photo shooting & creative product editing"
     },
     {
         "id": 2,
-        "thumb": "29.jpg",
+        "thumb": "2.jpg",
         "tag": "Creative",
         "date": "March, 2023",
         "text": "Quality in digital industrial"
     },
     {
         "id": 3,
-        "thumb": "30.jpg",
+        "thumb": "3.jpg",
         "tag": "Design",
         "date": "November, 2024",
         "text": "Blue business and mockup cards color standard"
     },
     {
         "id": 4,
-        "thumb": "31.jpg",
+        "thumb": "4.jpg",
         "tag": "Business",
         "date": "September, 2024",
         "text": "Simple black & white design"

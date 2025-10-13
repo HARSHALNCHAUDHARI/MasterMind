@@ -11,7 +11,7 @@ interface DataType {
   hasTitle?: boolean;
 }
 
-const ServicesV6 = ({ sectionClass, hasTitle }: DataType) => {
+const Services2 = ({ sectionClass, hasTitle }: DataType) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -33,18 +33,22 @@ const ServicesV6 = ({ sectionClass, hasTitle }: DataType) => {
             <div className="col-xl-5 col-lg-5">
               <div className="service-style-six-info">
                 <h4 className="sub-title">Services We Offer</h4>
-                <h2 className="title split-text">
-                  <SplitText
-                    delay={40}
-                    animationFrom={{ opacity: 0, transform: "translate3d(0,50px,0)" }}
-                    animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
-                    easing="easeOutCubic"
-                    threshold={0.2}
-                    rootMargin="-50px"
-                  >
-                    Our Comprehensive SEO Services in Pune Include
-                  </SplitText>
-                </h2>
+<h2 
+  className="title3 split-text" 
+  style={{ maxWidth: '500px' }}
+>
+  <SplitText
+    delay={40}
+    animationFrom={{ opacity: 0, transform: "translate3d(0,50px,0)" }}
+    animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
+    easing="easeOutCubic"
+    threshold={0.2}
+    rootMargin="-50px"
+  >
+    Our Comprehensive SEO Services in Pune Include
+  </SplitText>
+</h2>
+
                 <p className="split-text services-description">
   <SplitText
     delay={5}
@@ -130,4 +134,4 @@ const ServicesV6 = ({ sectionClass, hasTitle }: DataType) => {
   );
 };
 
-export default ServicesV6;
+export default Services2;
