@@ -17,42 +17,43 @@ const ProjectIdeaV1 = () => {
     const containerStyles: React.CSSProperties = {
         display: 'flex',
         flexDirection: 'column',
-        alignItems: isMobile ? 'center' : 'flex-start',
-        textAlign: isMobile ? 'center' : 'left',
+        alignItems: 'flex-start',
+        textAlign: 'left',
         width: '100%'
     };
     
     const headingStyles: React.CSSProperties = {
-        textAlign: isMobile ? 'center' : 'left',
+        textAlign: 'left',
         marginBottom: '1rem'
     };
     
     const contactListStyles: React.CSSProperties = {
         paddingLeft: 0,
         listStyleType: 'none',
-        textAlign: isMobile ? 'center' : 'left',
+        textAlign: 'left',
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: isMobile ? 'center' : 'flex-start'
+        alignItems: 'flex-start'
     };
     
     const contactItemStyles: React.CSSProperties = {
         display: 'flex',
-        justifyContent: isMobile ? 'center' : 'flex-start',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         marginBottom: '1rem',
-        textAlign: isMobile ? 'center' : 'left'
+        textAlign: 'left',
+        width: '100%'
     };
     
-    const iconStyles: React.CSSProperties = {
-        marginRight: '0.5rem',
-        fontSize: isMobile ? '1.5em' : '1.2em'
+    const iconContainerStyles: React.CSSProperties = {
+        flexShrink: 0,
+        marginRight: '15px'
     };
     
-    // Remove the forced left alignment on mobile
     const infoStyles: React.CSSProperties = {
-        textAlign: isMobile ? 'center' : 'left'
+        textAlign: 'left',
+        flex: 1
     };
 
     return (
@@ -69,7 +70,7 @@ const ProjectIdeaV1 = () => {
                         </h2>
                         <ul className="contact-list" style={contactListStyles}>
                             <li style={contactItemStyles}>
-                                <div className="icon" style={iconStyles}>
+                                <div className="icon" style={iconContainerStyles}>
                                     <i className="fas fa-phone fa-rotate-90" />
                                 </div>
                                 <div className="info" style={infoStyles}>
@@ -83,7 +84,7 @@ const ProjectIdeaV1 = () => {
                                 </div>
                             </li>
                             <li style={contactItemStyles}>
-                                <div className="icon" style={iconStyles}>
+                                <div className="icon" style={iconContainerStyles}>
                                     <i className="fas fa-envelope-open" />
                                 </div>
                                 <div className="info" style={infoStyles}>

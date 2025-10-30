@@ -466,7 +466,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                         transition={{ duration: 0.6 }}
                         variants={fadeInUp}
                     >
-                        <div className="label-final">IDEAL CANDIDATE</div>
+                        <div className="label-final" >IDEAL CANDIDATE</div>
                         <h2 className="title-final">
                             WE'RE <span className="text-red">LOOKING FOR</span>
                         </h2>
@@ -930,7 +930,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                         transition={{ duration: 0.8 }}
                         variants={scaleIn}
                     >
-                        <div className="label-final">LET'S BUILD</div>
                         <h2 className="cta-title-final">
                             READY TO<br/>
                             <span className="text-red">START?</span>

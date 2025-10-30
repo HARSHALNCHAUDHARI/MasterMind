@@ -1,4 +1,4 @@
-// BlogSingleWithSidebarContent.tsx - Force text colors with !important
+// BlogSingleWithSidebarContent.tsx - Light Theme = Black Text, Dark Theme Unchanged
 import React from 'react';
 import { Link, useParams } from "react-router-dom";
 import { Helmet } from 'react-helmet-async';
@@ -60,15 +60,12 @@ interface BlogSingleProps {
     sectionClass?: string;
 }
 
-// Enhanced FAQ Component with PROPER light/dark theme colors
+// Optimized FAQ Component
 const FAQSection: React.FC<{ faq: Array<{ question: string; answer: string }> }> = ({ faq }) => {
     const [expandedFAQ, setExpandedFAQ] = React.useState<number | null>(null);
-    
-    // Detect if dark mode is active
     const [isDarkMode, setIsDarkMode] = React.useState(false);
 
     React.useEffect(() => {
-        // Check for dark mode on mount
         const checkDarkMode = () => {
             const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
             const hasDarkClass = document.documentElement.classList.contains('dark') || 
@@ -78,11 +75,9 @@ const FAQSection: React.FC<{ faq: Array<{ question: string; answer: string }> }>
 
         checkDarkMode();
 
-        // Listen for theme changes
         const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
         darkModeQuery.addEventListener('change', checkDarkMode);
 
-        // Listen for class changes on body/html
         const observer = new MutationObserver(checkDarkMode);
         observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
         observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
@@ -93,10 +88,9 @@ const FAQSection: React.FC<{ faq: Array<{ question: string; answer: string }> }>
         };
     }, []);
 
-    // Dynamic colors based on theme
     const colors = {
-        textPrimary: isDarkMode ? '#ffffff' : '#222222',
-        textSecondary: isDarkMode ? 'rgba(255, 255, 255, 0.9)' : '#444444',
+        textPrimary: isDarkMode ? '#ffffff' : '#000000',
+        textSecondary: isDarkMode ? 'rgba(255, 255, 255, 0.9)' : '#000000',
         excerptBg: isDarkMode ? 'rgba(255, 107, 107, 0.15)' : 'rgba(255, 107, 107, 0.1)',
         faqBg: isDarkMode ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.03)',
         faqBorder: isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.08)',
@@ -105,7 +99,6 @@ const FAQSection: React.FC<{ faq: Array<{ question: string; answer: string }> }>
 
     return (
         <>
-            {/* Global CSS injection for FORCING colors */}
             <style dangerouslySetInnerHTML={{
                 __html: `
                     @keyframes fadeInDown {
@@ -119,7 +112,6 @@ const FAQSection: React.FC<{ faq: Array<{ question: string; answer: string }> }>
                         }
                     }
                     
-                    /* Force blog content colors based on theme */
                     .blog-content h1,
                     .blog-content h2,
                     .blog-content h3,
@@ -152,6 +144,57 @@ const FAQSection: React.FC<{ faq: Array<{ question: string; answer: string }> }>
                     .faq-section .faq-answer {
                         color: ${colors.textPrimary} !important;
                     }
+
+                    /* FAQ Icon - Headset */
+                    .faq-icon-marker {
+                        display: inline-flex !important;
+                        width: 40px !important;
+                        height: 40px !important;
+                        background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%) !important;
+                        border-radius: 50% !important;
+                        align-items: center !important;
+                        justify-content: center !important;
+                        margin-right: 1rem !important;
+                        flex-shrink: 0 !important;
+                        box-shadow: 0 3px 10px rgba(255, 107, 107, 0.2) !important;
+                    }
+
+                    .faq-icon-marker i {
+                        color: white !important;
+                        font-size: 20px !important;
+                    }
+
+                    /* Toggle Button */
+                    .faq-toggle-btn {
+                        width: 44px !important;
+                        height: 44px !important;
+                        border-radius: 50% !important;
+                        background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%) !important;
+                        border: none !important;
+                        display: flex !important;
+                        align-items: center !important;
+                        justify-content: center !important;
+                        cursor: pointer !important;
+                        transition: all 0.3s ease !important;
+                        box-shadow: 0 4px 12px rgba(255, 107, 107, 0.25) !important;
+                        flex-shrink: 0 !important;
+                        padding: 0 !important;
+                    }
+
+                    .faq-toggle-btn:hover {
+                        transform: translateY(-2px) !important;
+                        box-shadow: 0 6px 16px rgba(255, 107, 107, 0.35) !important;
+                    }
+
+                    .faq-toggle-btn i {
+                        font-size: 18px !important;
+                        color: white !important;
+                        transition: transform 0.3s ease !important;
+                    }
+
+                    .faq-toggle-btn.expanded i {
+                        transform: rotate(180deg) !important;
+                    }
                 `
             }} />
         
@@ -165,7 +208,7 @@ const FAQSection: React.FC<{ faq: Array<{ question: string; answer: string }> }>
                         fontWeight: 800,
                         marginBottom: '1rem'
                     }}>
-                     Frequently Asked Questions
+                        Frequently Asked Questions
                     </h2>
                     <p className="faq-description" style={{
                         fontSize: '1.1rem',
@@ -178,7 +221,7 @@ const FAQSection: React.FC<{ faq: Array<{ question: string; answer: string }> }>
                 </div>
 
                 <div className="faq-list" style={{
-                    maxWidth: '800px',
+                    maxWidth: '100%',
                     margin: '0 auto'
                 }}>
                     {faq.map((item, index) => (
@@ -186,83 +229,71 @@ const FAQSection: React.FC<{ faq: Array<{ question: string; answer: string }> }>
                             key={index} 
                             className="faq-item" 
                             style={{
-                                marginBottom: '1.5rem',
+                                marginBottom: '1.2rem',
                                 overflow: 'hidden',
-                                borderRadius: '16px',
-                                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                                borderRadius: '12px',
+                                transition: 'all 0.3s ease',
                                 cursor: 'pointer',
                                 background: colors.faqBg,
                                 border: `1px solid ${colors.faqBorder}`,
-                                boxShadow: `0 4px 20px ${colors.faqShadow}`
+                                boxShadow: `0 2px 8px ${colors.faqShadow}`
                             }}
                             onClick={() => setExpandedFAQ(expandedFAQ === index ? null : index)}
                         >
-                            <div style={{ padding: '2rem' }}>
+                            <div style={{ padding: '1.8rem' }}>
                                 <div style={{
                                     display: 'flex',
-                                    alignItems: 'center',
+                                    alignItems: 'flex-start',
                                     justifyContent: 'space-between',
-                                    marginBottom: expandedFAQ === index ? '1.5rem' : '0'
+                                    gap: '1rem'
                                 }}>
-                                    <h4 className="faq-question" style={{ 
-                                        marginBottom: 0,
-                                        fontSize: '1.3rem',
-                                        fontWeight: 700,
-                                        flex: 1,
-                                        paddingRight: '1rem',
-                                        display: 'flex',
-                                        alignItems: 'center'
-                                    }}>
-                                        <span style={{
-                                            display: 'inline-block',
-                                            width: '30px',
-                                            height: '20px',
-                                            background: 'linear-gradient(135deg, #ff6b6b 0%, #ffa8a8 50%, #ff8e8e 100%)',
-                                            marginRight: '1rem',
-                                            borderRadius: '4px',
-                                            flexShrink: 0
-                                        }}></span>
-                                        {item.question}
-                                    </h4>
                                     <div style={{
-                                        width: '40px',
-                                        height: '40px',
-                                        borderRadius: '50%',
-                                        background: 'linear-gradient(135deg, #ff4757 0%, #ff6b6b 50%, #ff7675 100%)',
                                         display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        color: 'white',
-                                        fontSize: '1.2rem',
-                                        fontWeight: 'bold',
-                                        transition: 'transform 0.3s ease',
-                                        transform: expandedFAQ === index ? 'rotate(45deg)' : 'rotate(0deg)',
-                                        boxShadow: '0 4px 15px rgba(255, 71, 87, 0.3)'
+                                        alignItems: 'flex-start',
+                                        gap: '1rem',
+                                        flex: 1
                                     }}>
-                                        +
+                                        <span className="faq-icon-marker" style={{ marginTop: '4px' }}>
+                                            <i className="fas fa-headset"></i>
+                                        </span>
+                                        <h4 className="faq-question" style={{ 
+                                            marginBottom: 0,
+                                            fontSize: '1.15rem',
+                                            fontWeight: 600,
+                                            lineHeight: '1.5',
+                                            maxHeight: '4.8rem',
+                                            overflow: 'hidden',
+                                            display: '-webkit-box',
+                                            WebkitLineClamp: 3,
+                                            WebkitBoxOrient: 'vertical'
+                                        }}>
+                                            {item.question}
+                                        </h4>
                                     </div>
+                                    <button
+                                        className={`faq-toggle-btn ${expandedFAQ === index ? 'expanded' : ''}`}
+                                        style={{
+                                            background: 'linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%)',
+                                            marginTop: '4px'
+                                        }}
+                                    >
+                                        <i className="fas fa-chevron-down"></i>
+                                    </button>
                                 </div>
                                 
                                 {expandedFAQ === index && (
                                     <div style={{
                                         animation: 'fadeInDown 0.3s ease',
-                                        borderTop: '2px solid rgba(255, 107, 107, 0.3)',
-                                        paddingTop: '1.5rem'
+                                        borderTop: '1px solid rgba(255, 107, 107, 0.2)',
+                                        marginTop: '1.4rem',
+                                        paddingTop: '1.4rem'
                                     }}>
                                         <p className="faq-answer" style={{ 
                                             marginBottom: 0,
-                                            fontSize: '1.1rem',
-                                            lineHeight: 1.6,
-                                            fontWeight: 500
+                                            fontSize: '1rem',
+                                            lineHeight: '1.8',
+                                            color: colors.textSecondary
                                         }}>
-                                            <span style={{
-                                                background: 'linear-gradient(135deg, #ff6b6b 0%, #ffa8a8 50%, #ff8e8e 100%)',
-                                                WebkitBackgroundClip: 'text',
-                                                WebkitTextFillColor: 'transparent',
-                                                backgroundClip: 'text',
-                                                marginRight: '0.5rem',
-                                                fontWeight: 700
-                                            }}>A:</span>
                                             {item.answer}
                                         </p>
                                     </div>
@@ -277,13 +308,8 @@ const FAQSection: React.FC<{ faq: Array<{ question: string; answer: string }> }>
 };
 
 const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, totalBlogs, sectionClass }) => {
-    // GET SLUG FROM URL USING useParams
     const { slug: urlSlug } = useParams<{ slug: string }>();
-    
-    // FIND THE BLOG BY SLUG FROM JSON DATA
     const currentBlog = BlogV2Data.find(blog => blog.slug === urlSlug) as DataType | undefined;
-    
-    // Detect dark mode
     const [isDarkMode, setIsDarkMode] = React.useState(false);
 
     React.useEffect(() => {
@@ -293,7 +319,6 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
                                  document.body.classList.contains('dark');
             const newDarkMode = darkModeQuery.matches || hasDarkClass;
             setIsDarkMode(newDarkMode);
-            console.log('🎨 Dark mode detected:', newDarkMode);
         };
 
         checkDarkMode();
@@ -311,12 +336,11 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
         };
     }, []);
 
-    // Theme colors
-    const textColor = isDarkMode ? '#ffffff' : '#222222';
-    const textSecondary = isDarkMode ? 'rgba(255, 255, 255, 0.9)' : '#444444';
+    // Light theme: Pure black text, Dark theme: unchanged
+    const textColor = isDarkMode ? '#ffffff' : '#000000';
+    const textSecondary = isDarkMode ? 'rgba(255, 255, 255, 0.9)' : '#000000';
     const excerptBg = isDarkMode ? 'rgba(255, 107, 107, 0.15)' : 'rgba(255, 107, 107, 0.1)';
     
-    // Use currentBlog data or fallback to blogInfo prop
     const blogData = currentBlog || blogInfo;
     
     const { 
@@ -337,18 +361,15 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
         url
     } = blogData || {};
 
-    // Access potentially missing properties safely
     const date = blogData?.date;
     const dateIcon = blogData?.dateIcon;
     const poll = blogData?.poll;
 
-    // Handle author object
     const authorName = author?.name || 'MasterMind Team';
     const authorJobTitle = author?.jobTitle || 'Web Design Expert';
     const authorCompany = author?.company || 'MasterMind Web Developers';
     const authorBio = author?.bio || 'Experienced digital marketing professional with a proven track record of helping businesses achieve remarkable online growth through strategic web design and development.';
     
-    // Enhanced image path handling
     const getBlogImagePath = () => {
         const imageName = image || thumbFull || thumb;
         
@@ -379,7 +400,6 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
         text: option
     })) || [];
 
-    // Blog-specific content renderer
     const renderBlogContent = () => {
         if (currentBlog && currentBlog.fullContent) {
             const paragraphs = currentBlog.fullContent.split('\n\n');
@@ -394,7 +414,6 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
                         </div>
                     )}
 
-                    {/* Show first 3 paragraphs */}
                     {paragraphs.slice(0, 3).map((paragraph, index) => {
                         if (paragraph.trim().startsWith('•')) {
                             const bullets = paragraph.split('\n').filter(line => line.trim().startsWith('•'));
@@ -418,7 +437,6 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
                         }
                     })}
 
-                    {/* Interactive Poll */}
                     {currentPoll && pollOptions.length > 0 && (
                         <div style={{ 
                             margin: '4rem 0', 
@@ -431,7 +449,6 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
                         </div>
                     )}
 
-                    {/* Continue with remaining paragraphs */}
                     {paragraphs.slice(3).map((paragraph, index) => {
                         const actualIndex = index + 3;
                         
@@ -457,7 +474,6 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
                         }
                     })}
 
-                    {/* FAQ Section */}
                     {currentBlog.faq && currentBlog.faq.length > 0 && (
                         <FAQSection faq={currentBlog.faq} />
                     )}
@@ -465,7 +481,6 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
             );
         }
 
-        // Fallback for blogs without full content
         return (
             <div className="blog-content">
                 <h1>{title || 'Blog Title'}</h1>
@@ -492,7 +507,6 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
         );
     };
 
-    // Blogs Navigation
     const currentIndex = BlogV2Data.findIndex(blog => blog.slug === urlSlug);
     const totalBlogsCount = totalBlogs || BlogV2Data.length;
     
@@ -506,10 +520,9 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
 
     return (
         <>
-            {/* INJECT GLOBAL CSS WITH !IMPORTANT FOR THEME COLORS */}
             <style dangerouslySetInnerHTML={{
                 __html: `
-                    /* Force blog content text colors */
+                    /* Blog content text colors */
                     .blog-content h1 {
                         font-size: 2.5rem !important;
                         font-weight: 800 !important;
@@ -521,6 +534,7 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
                         font-size: 2rem !important;
                         font-weight: 700 !important;
                         margin-bottom: 1rem !important;
+                        margin-top: 1.5rem !important;
                         color: ${textColor} !important;
                     }
                     
@@ -536,10 +550,13 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
                         color: ${textSecondary} !important;
                         line-height: 1.8 !important;
                         margin-bottom: 1rem !important;
+                        font-size: 1rem !important;
                     }
                     
-                    .blog-content ul {
-                        margin-bottom: 1rem !important;
+                    .blog-content ul,
+                    .blog-content ol {
+                        margin-bottom: 1.5rem !important;
+                        margin-left: 1.5rem !important;
                     }
                     
                     .blog-content .blog-excerpt {
@@ -567,10 +584,149 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
                         font-size: 1.1rem !important;
                         color: ${textSecondary} !important;
                     }
+
+                    /* MOBILE RESPONSIVE IMAGE - DESKTOP */
+                    .blog-item-box .thumb {
+                        width: 100% !important;
+                        height: 700px !important;
+                        position: relative !important;
+                        overflow: hidden !important;
+                        border-radius: 16px !important;
+                        margin-bottom: 2rem !important;
+                        display: flex !important;
+                        align-items: center !important;
+                        justify-content: center !important;
+                        background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 107, 107, 0.05) 100%) !important;
+                    }
+
+                    .blog-item-box .thumb img {
+                        width: 100% !important;
+                        height: 100% !important;
+                        object-fit: cover !important;
+                        object-position: center !important;
+                        border-radius: 16px !important;
+                        display: block !important;
+                    }
+
+                    /* TABLET BREAKPOINT: 992px and below */
+                    @media (max-width: 992px) {
+                        .blog-item-box .thumb {
+                            height: 580px !important;
+                            margin-bottom: 1.8rem !important;
+                        }
+                    }
+
+                    /* TABLET BREAKPOINT: 768px and below */
+                    @media (max-width: 768px) {
+                        .blog-item-box .thumb {
+                            height: 480px !important;
+                            margin-bottom: 1.5rem !important;
+                        }
+
+                        .blog-content h1 {
+                            font-size: 2rem !important;
+                        }
+
+                        .blog-content h2 {
+                            font-size: 1.6rem !important;
+                        }
+                    }
+
+                    /* MOBILE BREAKPOINT: 600px and below */
+                    @media (max-width: 600px) {
+                        .blog-item-box .thumb {
+                            height: 380px !important;
+                            margin-bottom: 1.2rem !important;
+                            border-radius: 12px !important;
+                        }
+
+                        .blog-item-box .thumb img {
+                            border-radius: 12px !important;
+                        }
+
+                        .blog-content h1 {
+                            font-size: 1.8rem !important;
+                            margin-bottom: 0.8rem !important;
+                        }
+
+                        .blog-content h2 {
+                            font-size: 1.4rem !important;
+                            margin-top: 1.2rem !important;
+                            margin-bottom: 0.8rem !important;
+                        }
+
+                        .blog-content p,
+                        .blog-content li {
+                            font-size: 0.95rem !important;
+                            line-height: 1.7 !important;
+                        }
+                    }
+
+                    /* SMALL MOBILE: 480px and below */
+                    @media (max-width: 480px) {
+                        .blog-item-box .thumb {
+                            height: 320px !important;
+                            margin-bottom: 1rem !important;
+                        }
+
+                        .blog-content h1 {
+                            font-size: 1.6rem !important;
+                            margin-bottom: 0.7rem !important;
+                        }
+
+                        .blog-content h2 {
+                            font-size: 1.2rem !important;
+                            margin-top: 1rem !important;
+                            margin-bottom: 0.7rem !important;
+                        }
+
+                        .blog-content p,
+                        .blog-content li {
+                            font-size: 0.9rem !important;
+                        }
+
+                        .blog-content ul,
+                        .blog-content ol {
+                            margin-left: 1rem !important;
+                        }
+                    }
+
+                    /* EXTRA SMALL: 375px and below */
+                    @media (max-width: 375px) {
+                        .blog-item-box .thumb {
+                            height: 280px !important;
+                            margin-bottom: 0.8rem !important;
+                            border-radius: 10px !important;
+                        }
+
+                        .blog-item-box .thumb img {
+                            border-radius: 10px !important;
+                        }
+
+                        .blog-content h1 {
+                            font-size: 1.4rem !important;
+                            margin-bottom: 0.6rem !important;
+                        }
+
+                        .blog-content h2 {
+                            font-size: 1.1rem !important;
+                            margin-top: 0.9rem !important;
+                            margin-bottom: 0.6rem !important;
+                        }
+
+                        .blog-content p,
+                        .blog-content li {
+                            font-size: 0.85rem !important;
+                        }
+
+                        .blog-content .blog-excerpt {
+                            padding: 1rem !important;
+                            font-size: 0.95rem !important;
+                        }
+                    }
                 `
             }} />
             
-            {/* SEO Meta Tags */}
             <Helmet>
                 <title>{currentBlog?.seo?.metaTitle || currentBlog?.title || title || 'Blog Post'}</title>
                 <meta name="description" content={currentBlog?.seo?.metaDescription || currentBlog?.excerpt || excerpt || ''} />
@@ -626,15 +782,19 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
                             <div className="blog-content col-xl-8 col-lg-7 col-md-12 pr-35 pr-md-15 pl-md-15 pr-xs-15 pl-xs-15">
                                 <div className="blog-style-one item">
                                     <div className="blog-item-box">
-                                        {/* Reduced Image Container */}
                                         <div 
                                             className="thumb"
                                             style={{
                                                 position: 'relative',
-                                                height: '600px',
+                                                width: '100%',
+                                                height: '700px',
                                                 overflow: 'hidden',
                                                 borderRadius: '16px',
                                                 marginBottom: '2rem',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                backgroundColor: isDarkMode ? 'rgba(255, 107, 107, 0.08)' : 'rgba(255, 107, 107, 0.05)'
                                             }}
                                         >
                                             <img 
@@ -645,7 +805,8 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
                                                     height: '100%',
                                                     objectFit: 'cover',
                                                     objectPosition: 'center',
-                                                    borderRadius: '16px'
+                                                    borderRadius: '16px',
+                                                    display: 'block'
                                                 }}
                                                 onError={(e) => {
                                                     const target = e.target as HTMLImageElement;
@@ -655,6 +816,7 @@ const BlogSingleWithSidebarContent: React.FC<BlogSingleProps> = ({ blogInfo, tot
                                                         target.src = '/assets/img/blog/placeholder.jpg';
                                                     }
                                                 }}
+                                                loading="lazy"
                                             />
                                         </div>
                                         

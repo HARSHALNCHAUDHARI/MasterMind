@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Keyboard, Pagination, Navigation, Mousewheel, Autoplay } from 'swiper/modules';
 import SplitText from "../animation/SplitText.jsx";
+import type { Swiper as SwiperType } from 'swiper';
 
 // Website data interface
 interface WebsiteData {
@@ -86,9 +87,8 @@ const websiteData: WebsiteData[] = [
     },
 ];
 
-// WebsitePreview Component - UPDATED
+// WebsitePreview Component
 const WebsitePreview: React.FC<{ website: WebsiteData; lightMode?: boolean }> = ({ website, lightMode }) => {
-    // MODIFICATION: Removed unused 'id' and corrected useState syntax
     const { url, title, image } = website;
     const [imageError, setImageError] = React.useState(false);
 
@@ -98,7 +98,6 @@ const WebsitePreview: React.FC<{ website: WebsiteData; lightMode?: boolean }> = 
 
     const titleColor = lightMode ? '#000000 !important' : '#faf8f8ff !important';
 
-    // Function to handle navigation
     const handleNavigate = () => {
         window.open(url, '_blank', 'noopener,noreferrer');
     };
@@ -267,8 +266,41 @@ const WebsitePreview: React.FC<{ website: WebsiteData; lightMode?: boolean }> = 
 const BannerV3: React.FC<DataType> = ({ lightMode }) => {
     const prevRef = useRef<HTMLDivElement>(null);
     const nextRef = useRef<HTMLDivElement>(null);
+    const swiperRef = useRef<SwiperType | null>(null);
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const [isVisible, setIsVisible] = useState(false);
 
-    React.useEffect(() => {
+    // Intersection Observer to detect when section is visible
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && !isVisible) {
+                        setIsVisible(true);
+                        if (swiperRef.current && swiperRef.current.autoplay) {
+                            swiperRef.current.autoplay.start();
+                        }
+                    }
+                });
+            },
+            {
+                threshold: 0.3,
+                rootMargin: '0px'
+            }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current);
+            }
+        };
+    }, [isVisible]);
+
+    useEffect(() => {
         const style = document.createElement('style');
         style.textContent = `
             .banner-slide-counter .swiper-slide {
@@ -298,27 +330,55 @@ const BannerV3: React.FC<DataType> = ({ lightMode }) => {
             }
 
             @media (max-width: 768px) {
+                /* AGGRESSIVE BOTTOM GAP REDUCTION */
+                .banner-style-three-area {
+                    padding-bottom: 0 !important;
+                    margin-bottom: 0 !important;
+                }
+
+                .banner-style-three-area .swiper {
+                    padding-bottom: 0 !important;
+                    margin-bottom: 0 !important;
+                }
+
+                .banner-slide-counter {
+                    padding-bottom: 0 !important;
+                    margin-bottom: 0 !important;
+                }
+
+                .banner-slide-counter .swiper-wrapper {
+                    padding-bottom: 0 !important;
+                    margin-bottom: 0 !important;
+                }
+
                 .banner-slide-counter .swiper-slide {
                     transform: scale(0.75);
-                    height: 480px !important;
+                    height: 420px !important;
+                    margin-bottom: 0 !important;
+                    padding-bottom: 0 !important;
                 }
 
                 .banner-slide-counter .swiper-slide-active {
                     transform: scale(1.2) !important;
-                    height: 520px !important;
+                    height: 450px !important;
                 }
 
+                .website-preview-container {
+                    padding-bottom: 5px !important;
+                    margin-bottom: 0 !important;
+                }
 
                 .website-preview-card {
-                    height: 230px !important;
+                    height: 220px !important;
                     width: 80% !important;
                     margin-left: auto;
                     margin-right: auto;
+                    margin-bottom: 3px !important;
                 }
 
                 .button-section {
                     width: 80% !important;
-                    margin: 15px auto 0 auto !important;
+                    margin: 5px auto 0 auto !important;
                     justify-content: center !important;
                     flex-direction: row !important;
                 }
@@ -335,12 +395,37 @@ const BannerV3: React.FC<DataType> = ({ lightMode }) => {
                     background-color: #dc3545 !important;
                     border-color: #dc3545 !important;
                     color: white !important;
-                    margin-top: -10px;
+                    margin-top: -3px !important;
+                    margin-bottom: 0 !important;
                 }
 
                 .banner-slide-button-prev,
                 .banner-slide-button-next {
                     display: none !important;
+                }
+
+                /* Force remove any extra spacing */
+                #ourportfolio {
+                    padding-bottom: 0 !important;
+                    margin-bottom: 0 !important;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .banner-style-three-area {
+                    padding-bottom: 0 !important;
+                }
+
+                .banner-slide-counter {
+                    padding-bottom: 0 !important;
+                }
+
+                .banner-slide-counter .swiper-slide {
+                    height: 400px !important;
+                }
+
+                .banner-slide-counter .swiper-slide-active {
+                    height: 430px !important;
                 }
             }
         `;
@@ -353,7 +438,11 @@ const BannerV3: React.FC<DataType> = ({ lightMode }) => {
 
     return (
         <>
-            <div id="ourportfolio" className="banner-style-three-area overflow-hidden">
+            <div 
+                ref={sectionRef} 
+                id="ourportfolio" 
+                className="banner-style-three-area overflow-hidden"
+            >
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
@@ -447,6 +536,12 @@ const BannerV3: React.FC<DataType> = ({ lightMode }) => {
 
                 <Swiper
                     className="banner-slide-counter"
+                    onSwiper={(swiper) => {
+                        swiperRef.current = swiper;
+                        if (swiper.autoplay) {
+                            swiper.autoplay.stop();
+                        }
+                    }}
                     loop={true}
                     grabCursor={true}
                     mousewheel={true}

@@ -216,11 +216,21 @@
 
 @media (max-width: 768px) {
   .section {
-    padding: 80px 0;
+    padding: 10px 0 80px 0;
+    margin-top: -40px;
   }
 
   .header {
-    margin-bottom: 50px;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .badge {
+    margin-bottom: 8px;
+  }
+
+  .title {
+    text-align: center;
   }
 
   .grid {
@@ -246,6 +256,24 @@
 }
 
 @media (max-width: 480px) {
+  .section {
+    padding: 5px 0 60px 0;
+    margin-top: -55px;
+  }
+
+  .header {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .badge {
+    margin-bottom: 6px;
+  }
+
+  .title {
+    text-align: center;
+  }
+
   .imageSection {
     height: 280px;
   }
@@ -260,5 +288,25 @@
 
   .description {
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .section {
+    padding: 3px 0 50px 0;
+    margin-top: -60px;
+  }
+
+  .header {
+    margin-bottom: 18px;
+    text-align: center;
+  }
+
+  .badge {
+    margin-bottom: 5px;
+  }
+
+  .title {
+    text-align: center;
   }
 }
