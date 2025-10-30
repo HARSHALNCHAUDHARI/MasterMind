@@ -12763,7 +12763,8 @@ h2.text-large-gradient {
 .contact-panel-bg {
     position: absolute;
     right: 70px;
-    top: 50;
+    top: 50%;
+    transform: translateY(-50%);
     height: 30%;
     width: 40%;
     background-size: cover;
@@ -12977,6 +12978,11 @@ ul.contact-list li .info {
         text-align: left !important;
         display: inline-block;
     }
+
+    /* Hide logo on mobile */
+    .contact-panel-bg {
+        display: none !important;
+    }
 }
 
 /* Extra Small Mobile */
@@ -13014,7 +13020,13 @@ ul.contact-list li .info {
         line-height: 55px !important;
         font-size: 18px !important;
     }
+
+    /* Hide logo on mobile */
+    .contact-panel-bg {
+        display: none !important;
+    }
 }
+
 
 
 
