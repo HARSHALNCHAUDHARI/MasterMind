@@ -12,7 +12,7 @@ interface DataType {
 }
 
 
-const ServicesV2 = ({ sectionClass, hasTitle = true }: DataType) => {
+const ServicesV2 = ({ sectionClass }: DataType) => {
     const [showAll, setShowAll] = useState(false);
     const [isExpanding, setIsExpanding] = useState(false);
     const [isMobile, setIsMobile] = useState(false);

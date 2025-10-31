@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import useHoverEffects from "../../hooks/useHoverEffects";
 
 interface DataType {
@@ -29,10 +28,9 @@ const SingleServiceV2 = ({ service, style }: SingleServiceV2Props) => {
             onMouseLeave={handleMouseLeave}
             style={style}
         >
-            <Link
-                to={`/service-details/${id}`}
+            <div
                 className="service-hover-item"
-                onMouseMove={(e) => handleMouseMove(e, id)}
+                onMouseMove={(e) => handleMouseMove(e as unknown as React.MouseEvent<HTMLAnchorElement>, id)}
                 onMouseLeave={() => handleMouseLeaveWrapper(id)}
             >
                 <div className="service-hover-content">
@@ -65,7 +63,7 @@ const SingleServiceV2 = ({ service, style }: SingleServiceV2Props) => {
                         alt="Image Not Found"
                     />
                 </div>
-            </Link>
+            </div>
         </li>
     );
 };
