@@ -37,16 +37,38 @@ const transporter = nodemailer.createTransport({
   },
   tls: {
     rejectUnauthorized: false
-  }
+  },
+  pool: {
+    maxConnections: 3,
+    maxMessages: Infinity,
+    rateDelta: 20,
+    rateLimit: 5
+  },
+  maxConnections: 5,
+  maxMessages: 100,
+  rateDelta: 1000,
+  rateLimit: true
 });
 
+// Verify email on startup (non-blocking)
 transporter.verify((error, success) => {
   if (error) {
-    console.error('❌ Email Configuration Error:', error.message);
+    console.error('⚠️ Email Configuration Warning:', error.message);
   } else {
     console.log('✅ Email server is ready!');
   }
 });
+
+// Helper function to send emails asynchronously (non-blocking)
+const sendEmailAsync = (mailOptions) => {
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.error('❌ Email send error:', error.message);
+    } else {
+      console.log('✅ Email sent:', info.messageId);
+    }
+  });
+};
 
 app.post('/api/contact', async (req, res) => {
   const { name, email, phone, comments } = req.body;
@@ -298,16 +320,15 @@ app.post('/api/contact', async (req, res) => {
   };
 
   try {
-    await transporter.sendMail(companyMailOptions);
-    console.log('✅ Company contact email SENT');
+    // Send emails asynchronously without waiting
+    sendEmailAsync(companyMailOptions);
+    sendEmailAsync(userMailOptions);
     
-    await transporter.sendMail(userMailOptions);
-    console.log('✅ User contact confirmation email SENT');
-    
+    // Respond immediately
     res.json({ success: true, message: 'Message sent successfully! Check your email for confirmation.' });
   } catch (error) {
-    console.error('Email error:', error);
-    res.status(500).json({ success: false, message: 'Failed to send message' });
+    console.error('Form submission error:', error);
+    res.status(500).json({ success: false, message: 'Failed to submit message' });
   }
 });
 
@@ -612,25 +633,11 @@ app.post('/api/apply', upload.single('resume'), async (req, res) => {
       `
     };
 
-    console.log('📤 Sending company email...');
-    try {
-      const companyResult = await transporter.sendMail(companyMailOptions);
-      console.log('✅ Company email SENT!', companyResult.messageId);
-    } catch (companyError) {
-      console.error('❌ COMPANY EMAIL FAILED:', companyError.message);
-      throw new Error(`Company email failed: ${companyError.message}`);
-    }
+    // Send emails asynchronously without waiting
+    sendEmailAsync(companyMailOptions);
+    sendEmailAsync(applicantMailOptions);
 
-    console.log('📤 Sending applicant email...');
-    try {
-      const applicantResult = await transporter.sendMail(applicantMailOptions);
-      console.log('✅ Applicant email SENT!', applicantResult.messageId);
-    } catch (applicantError) {
-      console.error('⚠️ APPLICANT EMAIL FAILED:', applicantError.message);
-    }
-
-    console.log('✅ APPLICATION COMPLETE\n');
-
+    // Respond immediately
     res.json({
       success: true,
       message: 'Application submitted successfully! Check your email for confirmation.'
