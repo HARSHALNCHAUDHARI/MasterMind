@@ -10,7 +10,6 @@ import { MdSearch, MdOutlinePhoneIphone } from "react-icons/md";
 import { TbSpeakerphone, TbRocket } from "react-icons/tb";
 import "./jobopening.css";
 
-
 import DarkClass from "../../components/classes/DarkClass";
 import ThemeDark from "../../components/switcher/ThemeDark";
 import CursorEffect from "../../components/animation/CursorEffect";
@@ -33,30 +32,25 @@ const JobOpening = () => {
     const [errors, setErrors] = useState<Record<string, string>>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-
     const fadeInUp = {
         hidden: { opacity: 0, y: 60 },
         visible: { opacity: 1, y: 0 }
     };
-
 
     const fadeInLeft = {
         hidden: { opacity: 0, x: -60 },
         visible: { opacity: 1, x: 0 }
     };
 
-
     const fadeInRight = {
         hidden: { opacity: 0, x: 60 },
         visible: { opacity: 1, x: 0 }
     };
 
-
     const scaleIn = {
         hidden: { opacity: 0, scale: 0.8 },
         visible: { opacity: 1, scale: 1 }
     };
-
 
     const positions = [
         {
@@ -145,33 +139,29 @@ const JobOpening = () => {
         }
     ];
 
+    const validateForm = () => {
+        const newErrors: Record<string, string> = {};
+        
+        if (!formData.name.trim()) newErrors.name = "Name is required";
+        if (!formData.email.trim()) {
+            newErrors.email = "Email is required";
+        } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+            newErrors.email = "Invalid email format";
+        }
+        if (!formData.phone.trim()) {
+            newErrors.phone = "Phone is required";
+        } else if (!/^\d{10}$/.test(formData.phone.replace(/\s/g, ""))) {
+            newErrors.phone = "Invalid phone number";
+        }
+        if (!formData.role) newErrors.role = "Please select a role";
+        if (!formData.resume) newErrors.resume = "Resume is required";
+        if (!formData.learning1.trim()) newErrors.learning1 = "Learning 1 is required";
+        if (!formData.learning2.trim()) newErrors.learning2 = "Learning 2 is required";
+        if (!formData.learning3.trim()) newErrors.learning3 = "Learning 3 is required";
 
-const validateForm = () => {
-    const newErrors: Record<string, string> = {};
-    
-    if (!formData.name.trim()) newErrors.name = "Name is required";
-    if (!formData.email.trim()) {
-        newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-        newErrors.email = "Invalid email format";
-    }
-    if (!formData.phone.trim()) {
-        newErrors.phone = "Phone is required";
-    } else if (!/^\d{10}$/.test(formData.phone.replace(/\s/g, ""))) {
-        newErrors.phone = "Invalid phone number";
-    }
-    if (!formData.role) newErrors.role = "Please select a role";
-    // REMOVED: Portfolio validation - now optional
-    if (!formData.resume) newErrors.resume = "Resume is required";
-    if (!formData.learning1.trim()) newErrors.learning1 = "Learning 1 is required";
-    if (!formData.learning2.trim()) newErrors.learning2 = "Learning 2 is required";
-    if (!formData.learning3.trim()) newErrors.learning3 = "Learning 3 is required";
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-};
-
-
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -180,7 +170,6 @@ const validateForm = () => {
             setErrors(prev => ({ ...prev, [name]: "" }));
         }
     };
-
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files[0]) {
@@ -191,79 +180,74 @@ const validateForm = () => {
         }
     };
 
-
-const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!validateForm()) {
-        return;
-    }
-
-    setIsSubmitting(true);
-
-    // Create FormData for file upload
-    const formDataToSend = new FormData();
-    formDataToSend.append('name', formData.name);
-    formDataToSend.append('email', formData.email);
-    formDataToSend.append('phone', formData.phone);
-    formDataToSend.append('role', formData.role);
-    formDataToSend.append('portfolio', formData.portfolio);
-    formDataToSend.append('learning1', formData.learning1);
-    formDataToSend.append('learning2', formData.learning2);
-    formDataToSend.append('learning3', formData.learning3);
-    
-    if (formData.resume) {
-        formDataToSend.append('resume', formData.resume);
-    }
-
-    try {
-        const response = await fetch('http://localhost:3001/api/apply', {
-            method: 'POST',
-            body: formDataToSend,
-        });
-
-        const data = await response.json();
-
-        if (data.success) {
-            alert(data.message);
-            // Reset form
-            setFormData({
-                name: "",
-                email: "",
-                phone: "",
-                role: "",
-                portfolio: "",
-                resume: null,
-                learning1: "",
-                learning2: "",
-                learning3: ""
-            });
-        } else {
-            alert('Error: ' + data.message);
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        
+        if (!validateForm()) {
+            return;
         }
 
-    } catch (error) {
-        console.error('Submission error:', error);
-        alert('Failed to submit application. Please try again.');
-    } finally {
-        setIsSubmitting(false);
-    }
-};
+        setIsSubmitting(true);
 
+        const formDataToSend = new FormData();
+        formDataToSend.append('name', formData.name);
+        formDataToSend.append('email', formData.email);
+        formDataToSend.append('phone', formData.phone);
+        formDataToSend.append('role', formData.role);
+        formDataToSend.append('portfolio', formData.portfolio);
+        formDataToSend.append('learning1', formData.learning1);
+        formDataToSend.append('learning2', formData.learning2);
+        formDataToSend.append('learning3', formData.learning3);
+        
+        if (formData.resume) {
+            formDataToSend.append('resume', formData.resume);
+        }
 
+        try {
+            const response = await fetch('http://localhost:3001/api/apply', {
+                method: 'POST',
+                body: formDataToSend,
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                alert(data.message);
+                setFormData({
+                    name: "",
+                    email: "",
+                    phone: "",
+                    role: "",
+                    portfolio: "",
+                    resume: null,
+                    learning1: "",
+                    learning2: "",
+                    learning3: ""
+                });
+            } else {
+                alert('Error: ' + data.message);
+            }
+
+        } catch (error) {
+            console.error('Submission error:', error);
+            alert('Failed to submit application. Please try again.');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     return (
-
         <div className="careers-final">
             <div className="bg-orb orb-purple"></div>
             <div className="bg-orb orb-pink"></div>
             <div className="bg-orb orb-blue"></div>
             <div className="mesh-gradient"></div>
 
-                <HeaderV2 />
-                <CursorEffect />
-                <DarkClass />
-                <ThemeDark />
+            <HeaderV2 />
+            <CursorEffect />
+            <DarkClass />
+            <ThemeDark />
+
             {/* Hero */}
             <section className="hero-final">
                 <div className="container-final">
@@ -304,7 +288,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                                 Build something extraordinary with a team that went from 2 projects to 25+ in months. This isn't just a job—it's your chance to shape the future of digital marketing.
                             </motion.p>
 
-
                             <motion.div 
                                 className="hero-buttons"
                                 initial={{ opacity: 0, y: 20 }}
@@ -320,7 +303,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                                 </a>
                             </motion.div>
                         </motion.div>
-
 
                         <motion.div 
                             className="hero-right"
@@ -356,7 +338,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                                 </motion.div>
                             </div>
 
-
                             <div className="hero-company">
                                 <div className="company-badge">
                                     <FiBriefcase />
@@ -371,7 +352,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                     </div>
                 </div>
             </section>
-
 
             {/* Journey */}
             <section className="journey-final" id="story">
@@ -454,7 +434,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                 </div>
             </section>
 
-
             {/* Looking For */}
             <section className="looking-final">
                 <div className="container-final">
@@ -466,12 +445,11 @@ const handleSubmit = async (e: React.FormEvent) => {
                         transition={{ duration: 0.6 }}
                         variants={fadeInUp}
                     >
-                        <div className="label-final" >IDEAL CANDIDATE</div>
+                        <div className="label-final">IDEAL CANDIDATE</div>
                         <h2 className="title-final">
                             WE'RE <span className="text-red">LOOKING FOR</span>
                         </h2>
                     </motion.div>
-
 
                     <div className="qualities-final">
                         {[
@@ -498,7 +476,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                 </div>
             </section>
 
-
             {/* Roles */}
             <section className="roles-final" id="roles">
                 <div className="container-final">
@@ -516,7 +493,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                             <span className="text-red">POSITIONS</span>
                         </h2>
                     </motion.div>
-
 
                     <div className="roles-grid-final">
                         {positions.map((job, idx) => {
@@ -546,20 +522,14 @@ const handleSubmit = async (e: React.FormEvent) => {
                                         <button 
                                             className="role-btn-final"
                                             onClick={() => setExpandedRole(isOpen ? null : job.id)}
+                                            type="button"
+                                            aria-label="Toggle role details"
                                         >
-                                            <FiArrowRight 
-                                                size={20}
-                                                style={{ 
-                                                    transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)',
-                                                    transition: 'transform 0.3s'
-                                                }}
-                                            />
+                                            <FiArrowRight className={isOpen ? "arrow-open" : ""} size={20} />
                                         </button>
                                     </div>
 
-
                                     <p className="role-desc-final">{job.description}</p>
-
 
                                     {isOpen && (
                                         <motion.div 
@@ -606,7 +576,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                 </div>
             </section>
 
-
             {/* Application Form */}
             <section className="apply-final" id="apply">
                 <div className="container-final">
@@ -624,7 +593,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                         </h2>
                         <p className="apply-subtitle">Fill out the form below to submit your application</p>
                     </motion.div>
-
 
                     <motion.form 
                         className="application-form"
@@ -664,7 +632,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                                     {errors.name && <span className="error-message">{errors.name}</span>}
                                 </div>
 
-
                                 <div className="form-group">
                                     <label htmlFor="email">Email Address *</label>
                                     <input
@@ -678,7 +645,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                                     />
                                     {errors.email && <span className="error-message">{errors.email}</span>}
                                 </div>
-
 
                                 <div className="form-group">
                                     <label htmlFor="phone">Phone Number *</label>
@@ -694,7 +660,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                                     {errors.phone && <span className="error-message">{errors.phone}</span>}
                                 </div>
                             </motion.div>
-
 
                             {/* Position & Portfolio */}
                             <motion.div 
@@ -727,10 +692,8 @@ const handleSubmit = async (e: React.FormEvent) => {
                                     {errors.role && <span className="error-message">{errors.role}</span>}
                                 </div>
 
-
                                 <div className="form-group">
                                     <label htmlFor="portfolio">Portfolio / Work Links (Optional)</label>
-
                                     <input
                                         type="url"
                                         id="portfolio"
@@ -742,7 +705,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                                     />
                                     {errors.portfolio && <span className="error-message">{errors.portfolio}</span>}
                                 </div>
-
 
                                 <div className="form-group">
                                     <label htmlFor="resume">Resume (PDF) *</label>
@@ -763,7 +725,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                                     {errors.resume && <span className="error-message">{errors.resume}</span>}
                                 </div>
                             </motion.div>
-
 
                             {/* Recent Learnings */}
                             <motion.div 
@@ -793,7 +754,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                                     {errors.learning1 && <span className="error-message">{errors.learning1}</span>}
                                 </div>
 
-
                                 <div className="form-group">
                                     <label htmlFor="learning2">Learning 2</label>
                                     <textarea
@@ -807,7 +767,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                                     />
                                     {errors.learning2 && <span className="error-message">{errors.learning2}</span>}
                                 </div>
-
 
                                 <div className="form-group">
                                     <label htmlFor="learning3">Learning 3</label>
@@ -825,7 +784,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                             </motion.div>
                         </div>
 
-
                         <motion.div 
                             className="form-footer"
                             initial="hidden"
@@ -842,7 +800,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                                 </div>
                             </div>
 
-
                             <motion.button 
                                 type="submit" 
                                 className="submit-btn"
@@ -853,7 +810,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                                 {isSubmitting ? "SUBMITTING..." : "SUBMIT APPLICATION"}
                                 <FiSend />
                             </motion.button>
-
 
                             <div className="contact-info">
                                 <p>Questions? Reach out to us:</p>
@@ -874,7 +830,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                 </div>
             </section>
 
-
             {/* Benefits */}
             <section className="benefits-final">
                 <div className="container-final">
@@ -891,7 +846,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                             WHAT YOU'LL <span className="text-red">GET</span>
                         </h2>
                     </motion.div>
-
 
                     <div className="benefits-grid-final">
                         {[
@@ -918,7 +872,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                 </div>
             </section>
 
-
             {/* CTA */}
             <section className="cta-final">
                 <div className="container-final">
@@ -942,10 +895,10 @@ const handleSubmit = async (e: React.FormEvent) => {
                     </motion.div>
                 </div>
             </section>
-                         <FooterV3 />
+
+            <FooterV3 />
         </div>
     );
 };
-
 
 export default JobOpening;

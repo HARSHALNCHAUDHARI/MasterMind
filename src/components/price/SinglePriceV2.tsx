@@ -14,7 +14,7 @@ interface DataType {
 }
 
 const SinglePriceV2 = ({ plan }: { plan: DataType }) => {
-    const { id, title,  features, priceOriginal, priceDiscounted, currency, timeline, hosting, note } = plan;
+    const { id, title, features, priceOriginal, priceDiscounted, currency, timeline, hosting, note } = plan;
 
     const formatPrice = (price: number) => {
         if (currency === "INR") {
@@ -23,14 +23,11 @@ const SinglePriceV2 = ({ plan }: { plan: DataType }) => {
         return `$${price}`;
     };
 
-
-
     return (
         <>
             <div className="pricing-style-two">
                 <div className="pricing-header">
                     <h4 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-
                         {title}
                     </h4>
                 </div>
@@ -52,7 +49,7 @@ const SinglePriceV2 = ({ plan }: { plan: DataType }) => {
                         <strong>Hosting:</strong> {hosting}
                     </div>
                 </div>
-                <Link className="btn mt-25 btn-sm circle btn-border dark effect" to="/contact-us">Get Started</Link>
+                <Link className="btn mt-25 btn-sm circle btn-border dark effect" to="/#contact">Get Started</Link>
             </div>
         </>
     );

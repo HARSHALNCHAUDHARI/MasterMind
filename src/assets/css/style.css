@@ -16222,101 +16222,6 @@ form.contact-form .form-group textarea {
     padding: 0;
     box-shadow: none;
 }
-/* Custom Select Dropdown for Country Codes */
-.phone-container {
-    display: flex;
-    align-items: flex-end; /* Aligns dropdown and input */
-}
-
-.custom-select-wrapper {
-    position: relative;
-    width: 70px; /* Adjust as needed */
-    flex-shrink: 0;
-    margin-right: 10px;
-}
-
-.select-selected {
-    background-color: transparent;
-    color: var(--color-heading);
-    padding: 0 0 7px 5px;
-    border-bottom: 1px solid #cccccc;
-    cursor: pointer;
-    user-select: none;
-    display: flex;
-    align-items: center;
-    gap: 5px; /* Space between flag and code */
-}
-.select-items {
-    position: absolute;
-    background-color: #2c2c2c;
-    top: 100%;
-    left: 0;
-    z-index: 99;
-    max-height: 200px;
-    overflow-y: auto;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    width: 300px; /* Set the width of the dropdown list */
-}
-
-
-.select-selected.disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
-}
-
-.bg-dark .select-selected {
-    color: var(--white);
-    border-bottom-color: rgba(255, 255, 255, 0.3);
-}
-
-.select-items {
-    position: absolute;
-    background-color: #2c2c2c; /* Dark background for the dropdown */
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 99;
-    max-height: 200px;
-    overflow-y: auto;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-}
-
-.select-items div {
-    color: #fff; /* White text for options */
-    padding: 8px 12px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.select-items div:hover {
-    background-color: var(--color-primary); /* Use your primary color for hover */
-    color: #fff;
-}
-
-.phone-container input#phone {
-    flex-grow: 1; /* Allows phone input to take remaining space */
-}
-
-/* Scrollbar styling for dark mode */
-.select-items::-webkit-scrollbar {
-    width: 8px;
-}
-.select-items::-webkit-scrollbar-track {
-    background: #2c2c2c;
-}
-.select-items::-webkit-scrollbar-thumb {
-    background: #555;
-    border-radius: 4px;
-}
-.select-items::-webkit-scrollbar-thumb:hover {
-    background: #777;
-}
-
-
 
 .bg-dark form.contact-form .form-group input,
 .bg-dark form.contact-form .form-group textarea {
@@ -16326,9 +16231,167 @@ form.contact-form .form-group textarea {
 
 form.contact-form .form-group input:focus,
 form.contact-form .form-group textarea:focus {
+    border-bottom-color: var(--color-primary);
     box-shadow: none;
 }
 
+/* ========== PERFECT PHONE FIELD ALIGNMENT ========== */
+.phone-form-group {
+    position: relative;
+}
+
+.phone-field {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 12px;
+    align-items: baseline;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 7px;
+}
+
+.bg-dark .phone-field {
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.cc-wrap {
+    display: inline-flex;
+    align-items: baseline;
+    min-width: 74px;
+}
+
+.cc-wrap .select-selected {
+    line-height: 1;
+    padding: 0;
+    border: 0;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 14px;
+}
+
+.cc-wrap img,
+.cc-wrap svg {
+    vertical-align: middle;
+}
+
+.cc-wrap .select-items {
+    top: calc(100% + 6px);
+    min-width: 220px;
+    width: max-content;
+}
+
+.phone-input {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    line-height: 1.2;
+    font-size: 14px;
+    color: var(--color-heading);
+}
+
+.bg-dark .phone-input {
+    color: var(--white);
+}
+
+.phone-input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.bg-dark .phone-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.phone-meta {
+    display: block;
+    font-size: 11px;
+    margin-top: 4px;
+    color: #9aa0a6;
+}
+
+.bg-dark .phone-meta {
+    color: #b5b9bf;
+}
+
+.cc-wrap .select-selected,
+.phone-input {
+    padding-top: 2px;
+}
+
+/* ========== COUNTRY CODE DROPDOWN ========== */
+.custom-select-wrapper {
+    position: relative;
+}
+
+.select-selected {
+    background-color: transparent;
+    color: var(--color-heading);
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.bg-dark .select-selected {
+    color: var(--white);
+}
+
+.select-selected.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.select-items {
+    position: absolute;
+    background-color: #2c2c2c;
+    top: calc(100% + 5px);
+    left: 0;
+    z-index: 99;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    width: 280px;
+    min-width: 100%;
+}
+
+.select-items div {
+    color: #fff;
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+}
+
+.select-items div:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+.select-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+.select-items::-webkit-scrollbar-track {
+    background: #2c2c2c;
+}
+
+.select-items::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 3px;
+}
+
+.select-items::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+/* ========== FORM ELEMENTS ========== */
 .contact-form .form-group textarea {
     height: 150px;
     margin-top: 15px;
@@ -16338,14 +16401,20 @@ form.contact-form .form-group textarea:focus {
     margin-top: 15px;
 }
 
+.contact-form button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .bg-dark .contact-form button::after {
     background: var(--white);
 }
 
-.bg-dark .contact-form button:hover {
+.bg-dark .contact-form button:hover:not(:disabled) {
     color: var(--color-heading);
 }
 
+/* ========== CONTACT ADDRESS ========== */
 .contact-address .phone-link {
     font-weight: 600;
     font-size: 30px;
@@ -16364,7 +16433,6 @@ form.contact-form .form-group textarea:focus {
     margin-right: 5px;
 }
 
-
 .bg-dark form.contact-form .form-group input::-webkit-input-placeholder,
 .bg-dark form.contact-form .form-group textarea::-webkit-input-placeholder {
     color: #cccccc;
@@ -16380,24 +16448,19 @@ form.contact-form .form-group textarea:focus {
     color: #cccccc;
 }
 
-.bg-dark form.contact-form .form-group input:-moz-placeholder,
-.bg-dark form.contact-form .form-group textarea:-moz-placeholder {
-    color: #cccccc;
-}
-
-/* FIXED: Perfect Social Icons Alignment for Laptop Screens */
+/* ========== SOCIAL ICONS ========== */
 .contact-style-one-info ul.social-link {
-    display: grid; /* Use grid for 2D layout */
-    grid-template-columns: repeat(3, 1fr); /* Create 3 equal columns */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     margin: 0;
     padding: 0;
     list-style: none;
-    width: 165px; /* (45px * 3) + (15px * 2) = 165px */
+    width: 165px;
 }
 
 .contact-style-one-info ul.social-link li {
-    display: flex; /* Use flex to center the icon inside the grid item */
+    display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
@@ -16417,7 +16480,6 @@ form.contact-form .form-group textarea:focus {
     transition: all 0.3s ease;
     margin: 0;
 }
-
 
 .bg-dark .contact-style-one-info ul.social-link li a {
     background: rgba(255, 255, 255, 0.1);
@@ -16444,6 +16506,7 @@ form.contact-form .form-group textarea:focus {
     transform: translateY(-2px);
 }
 
+/* ========== MAPS ========== */
 .maps-area {
     margin-bottom: -8px;
     position: relative;
@@ -16455,7 +16518,7 @@ form.contact-form .form-group textarea:focus {
     min-height: 650px;
 }
 
-/* Footer Styles */
+/* ========== FOOTER ========== */
 footer {
     border-top: 1px solid #dddddd;
 }
@@ -16599,6 +16662,7 @@ ul.useful-link li a {
     color: var(--white);
 }
 
+/* ========== NEWSLETTER ========== */
 form.newsletter {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 30px;
@@ -16731,7 +16795,7 @@ form.newsletter.style-two button img {
     filter: brightness(0) invert(1);
 }
 
-/* FIXED: Perfect Footer Social Icons Alignment for Laptop */
+/* ========== FOOTER SOCIAL ========== */
 ul.footer-social {
     margin: 0;
     padding: 0;
@@ -16831,7 +16895,7 @@ ul.footer-social li a:hover {
     color: var(--color-primary);
 }
 
-/* Contact Info List */
+/* ========== CONTACT INFO LIST ========== */
 ul.contact-info-list {
     margin: 0;
     padding: 0;
@@ -16891,56 +16955,32 @@ ul.contact-info-list li div {
     flex-direction: column;
 }
 
-/* Laptop Screen Optimizations (1024px - 1366px) */
-@media screen and (min-width: 992px) and (max-width: 1366px) {
-    /* Perfect Social Icons Alignment for Laptop */
-    ul.footer-social {
-        justify-content: center;
-        gap: 12px;
-        margin-top: 20px;
-    }
-    
-    ul.footer-social li a {
-        height: 42px;
-        width: 42px;
-    }
-    
-    ul.footer-social li a img {
-        width: 18px;
-        height: 18px;
-    }
-    
-    .contact-style-one-info ul.social-link {
-        gap: 12px;
-        justify-content: flex-start;
-    }
-    
-    .contact-style-one-info ul.social-link li a {
-        height: 42px;
-        width: 42px;
-    }
-    
-    .contact-style-one-info ul.social-link li a img {
-        height: 16px;
-        width: 16px;
-    }
+/* ========== RESPONSIVE TWEAKS ========== */
+@media (max-width: 1199px) {
+    .cc-wrap { min-width: 70px; }
+    .cc-wrap .select-selected,
+    .phone-input { font-size: 13.5px; }
 }
 
-@media screen and (max-width: 991px) {
+@media (max-width: 991px) {
+    .phone-field { column-gap: 10px; padding-bottom: 7px; }
+    .cc-wrap { min-width: 66px; }
+    .cc-wrap .select-selected,
+    .phone-input { font-size: 13px; }
+
     form.newsletter.style-two input {
         padding: 15px 30px;
     }
-    
+
     form.newsletter.style-two {
         border: 1px solid #e7e7e7;
         border-radius: 10px;
     }
-    
+
     form.newsletter.style-two button {
         right: 15px;
     }
-    
-    /* Mobile Contact Info Centering */
+
     ul.contact-info-list {
         display: flex !important;
         flex-direction: column !important;
@@ -16951,7 +16991,7 @@ ul.contact-info-list li div {
         margin-left: 0 !important;
         width: 100% !important;
     }
-    
+
     ul.contact-info-list li {
         font-size: 18px !important;
         text-align: center !important;
@@ -16964,7 +17004,7 @@ ul.contact-info-list li div {
         padding: 0 !important;
         gap: 8px !important;
     }
-    
+
     ul.contact-info-list li a,
     ul.contact-info-list li span {
         font-size: 18px !important;
@@ -16974,7 +17014,7 @@ ul.contact-info-list li div {
         margin: 0 auto !important;
         padding: 0 !important;
     }
-    
+
     ul.contact-info-list li i {
         text-align: center !important;
         margin: 0 auto !important;
@@ -16982,7 +17022,7 @@ ul.contact-info-list li div {
         align-items: center !important;
         justify-content: center !important;
     }
-    
+
     ul.contact-info-list li .phone-numbers,
     ul.contact-info-list li div {
         display: flex !important;
@@ -16992,7 +17032,7 @@ ul.contact-info-list li div {
         text-align: center !important;
         width: 100% !important;
     }
-    
+
     ul.contact-info-list li .phone-numbers a,
     ul.contact-info-list li div a {
         display: block !important;
@@ -17000,14 +17040,13 @@ ul.contact-info-list li div {
         width: auto !important;
         margin: 0 auto !important;
     }
-    
-    /* Mobile Social Icons */
+
     ul.footer-social {
         justify-content: center;
         gap: 10px;
         margin-top: 15px;
     }
-    
+
     .contact-style-one-info ul.social-link {
         justify-content: center;
         gap: 10px;
@@ -17015,36 +17054,17 @@ ul.contact-info-list li div {
     }
 }
 
-/* Large Desktop Screens */
-@media screen and (min-width: 1367px) {
-    ul.footer-social {
-        gap: 18px;
-    }
-    
-    ul.footer-social li a {
-        height: 48px;
-        width: 48px;
-    }
-    
-    ul.footer-social li a img {
-        width: 22px;
-        height: 22px;
-    }
-    
-    .contact-style-one-info ul.social-link {
-        gap: 18px;
-    }
-    
-    .contact-style-one-info ul.social-link li a {
-        height: 48px;
-        width: 48px;
-    }
-    
-    .contact-style-one-info ul.social-link li a img {
-        height: 20px;
-        width: 20px;
-    }
+@media (max-width: 575px) {
+    .phone-field { column-gap: 8px; }
+    .cc-wrap { min-width: 60px; }
+    .cc-wrap .select-selected,
+    .phone-input { font-size: 12.5px; }
+    .cc-wrap .select-items { min-width: 200px; }
 }
+
+/* Ensure no double underline */
+.phone-form-group .form-control.phone-input { border-bottom: none !important; }
+
 
 
 
