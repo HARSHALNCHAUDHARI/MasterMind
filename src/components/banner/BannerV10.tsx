@@ -6,9 +6,17 @@ const BannerV10 = () => {
     return (
         <>
             <div className="banner-style-ten-area shadow dark-hard">
-                {/* Background Video  */}
-                <video loop muted autoPlay>
+                {/* Background Video - Fixed with all necessary attributes */}
+                <video 
+                    loop 
+                    muted 
+                    autoPlay 
+                    playsInline 
+                    preload="auto"
+                    className="banner-video-bg"
+                >
                     <source src="/assets/video/abstract.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
                 </video>
 
                 <div className="light-banner-active bg-gray bg-cover" style={{ backgroundImage: 'url(/assets/img/shape/7.jpg)' }} />

@@ -6007,7 +6007,9 @@ ul.list-style-two li:last-child {
     align-items: center;
 }
 
-.banner-style-ten-area video {
+/* FIXED: Background Video Styles */
+.banner-style-ten-area video,
+.banner-style-ten-area .banner-video-bg {
     position: absolute;
     left: 0;
     top: 0;
@@ -6015,6 +6017,8 @@ ul.list-style-two li:last-child {
     height: 100%;
     z-index: -1;
     object-fit: cover;
+    pointer-events: none; /* CRITICAL: Prevents video player controls from showing */
+    user-select: none; /* Prevents selection */
 }
 
 .banner-center-content {
@@ -6422,6 +6426,7 @@ ul.list-style-two li:last-child {
         font-size: 22px !important;
     }
 }
+
 
 
 
