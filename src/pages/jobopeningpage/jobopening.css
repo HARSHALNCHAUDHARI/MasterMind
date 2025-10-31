@@ -174,9 +174,9 @@
     justify-content: center;
     gap: 10px;
     padding: 14px 32px;
-    background: linear-gradient(135deg, rgba(220, 38, 38, 0.15), rgba(220, 38, 38, 0.05));
+    background: linear-gradient(135deg, rgba(245, 76, 76, 0.15), rgba(220, 38, 38, 0.05));
     backdrop-filter: blur(20px);
-    border: 1.5px solid rgba(220, 38, 38, 0.5);
+    border: 1.5px solid rgba(250, 100, 100, 0.5);
     border-radius: 100px;
     margin-bottom: 40px;
     box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -200,7 +200,7 @@
 .tag-dot-final {
     width: 10px;
     height: 10px;
-    background: linear-gradient(135deg, #DC2626, #991B1B);
+    background: linear-gradient(135deg, #db4444, #f65353);
     border-radius: 50%;
     animation: pulse-dot-final 2s ease-in-out infinite;
     box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.2), 0 0 15px rgba(220, 38, 38, 0.8);
@@ -225,7 +225,7 @@
     font-size: 11px;
     font-weight: 900;
     letter-spacing: 2.8px;
-    color: #FFFFFF;
+    color: #ffffffc2;
     position: relative;
     z-index: 1;
 }
