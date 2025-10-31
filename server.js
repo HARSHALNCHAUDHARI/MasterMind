@@ -54,7 +54,7 @@ app.post('/api/contact', async (req, res) => {
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: 'info@mastermindweb.in',
+    to: 'harshalchaudhari7090@gmail.com',
     subject: `New Contact Form - ${name}`,
     html: `
       <h3>New Contact Form Submission</h3>
@@ -100,7 +100,7 @@ app.post('/api/apply', upload.single('resume'), async (req, res) => {
 
     const companyMailOptions = {
       from: process.env.EMAIL_USER,
-      to: 'info@mastermindweb.in',
+      to: 'harshalchaudhari7090@gmail.com',
       subject: `${role} - ${name} - Pune (Ready to Adapt AI)`,
       html: `
         <!DOCTYPE html>
